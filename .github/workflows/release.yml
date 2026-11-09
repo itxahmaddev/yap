@@ -33,7 +33,7 @@ jobs:
               tag_name: `v${{ steps.get-version.outputs.version }}`,
               name: `v${{ steps.get-version.outputs.version }}`,
               draft: true,
-              prerelease: false,
+              prerelease: true,
               generate_release_notes: true
             })
             return data.id
@@ -73,7 +73,7 @@ jobs:
       platform: ${{ matrix.platform }}
       target: ${{ matrix.target }}
       build-args: ${{ matrix.args }}
-      sign-binaries: true
+      sign-binaries: false
       asset-prefix: "yap"
       upload-artifacts: false
       release-id: ${{ needs.create-release.outputs.release-id }}
