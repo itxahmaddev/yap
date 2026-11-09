@@ -280,10 +280,10 @@ Download the models you want from below
 
 **Whisper Models (single .bin files):**
 
-- Small (487 MB): `https://blob.github.com/itxahmaddev/yap/ggml-small.bin`
-- Medium (492 MB): `https://blob.github.com/itxahmaddev/yap/whisper-medium-q4_1.bin`
-- Turbo (1600 MB): `https://blob.github.com/itxahmaddev/yap/ggml-large-v3-turbo.bin`
-- Large (1100 MB): `https://blob.github.com/itxahmaddev/yap/ggml-large-v3-q5_0.bin`
+- Small (487 MB): `https://blob.handy.computer/ggml-small.bin`
+- Medium (492 MB): `https://blob.handy.computer/whisper-medium-q4_1.bin`
+- Turbo (1600 MB): `https://blob.handy.computer/ggml-large-v3-turbo.bin`
+- Large (1100 MB): `https://blob.handy.computer/ggml-large-v3-q5_0.bin`
 
 **Parakeet Unified EN 0.6B (single `.gguf` file, recommended):**
 

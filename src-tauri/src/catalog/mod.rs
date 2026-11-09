@@ -33,7 +33,7 @@ const SCHEMA: u32 = 2;
 /// file URL is `{mirror}/{repo_id}/{revision}/{filename}` — the same three
 /// values that form the HF resolve URL, so a mirror is a plain static host.
 /// `scripts/mirror_models.py` populates it from this catalog.
-const MIRRORS: &[&str] = &["https://blob.github.com/itxahmaddev/yap"];
+const MIRRORS: &[&str] = &["https://blob.handy.computer"];
 
 /// Yap's list order and onboarding set, keyed by catalog id. Kept from the
 /// previous generator until onboarding moves to the package's recommendations.

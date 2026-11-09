@@ -1124,8 +1124,7 @@ impl Worker {
         // this at the built app instead.
         #[cfg(test)]
         let exe = PathBuf::from(
-            std::env::var_os("YAP_TRANSCRIBE_WORKER_EXE")
-                .expect("set YAP_TRANSCRIBE_WORKER_EXE"),
+            std::env::var_os("YAP_TRANSCRIBE_WORKER_EXE").expect("set YAP_TRANSCRIBE_WORKER_EXE"),
         );
         #[cfg(not(test))]
         let exe = worker_exe()?;

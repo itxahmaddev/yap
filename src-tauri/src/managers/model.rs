@@ -26,7 +26,7 @@ use download::{
 /// for downloading and on-disk resolution.
 #[derive(Debug, Clone, Serialize, Deserialize, Type)]
 pub enum ModelSource {
-    /// Direct HTTP download from a URL (current blob.github.com/itxahmaddev/yap hosting).
+    /// Direct HTTP download from a URL (current blob.handy.computer hosting).
     Url {
         url: String,
         /// Expected SHA-256 for integrity verification; `None` skips it.
@@ -913,7 +913,7 @@ impl ModelManager {
                 description: "Fast and fairly accurate.".to_string(),
                 filename: "ggml-small.bin".to_string(),
                 source: ModelSource::Url {
-                    url: "https://blob.github.com/itxahmaddev/yap/ggml-small.bin".to_string(),
+                    url: "https://blob.handy.computer/ggml-small.bin".to_string(),
                     sha256: Some(
                         "1be3a9b2063867b937e64e2ec7483364a79917e157fa98c5d94b5c1fffea987b"
                             .to_string(),
@@ -944,7 +944,7 @@ impl ModelManager {
                 description: "Good accuracy, medium speed".to_string(),
                 filename: "whisper-medium-q4_1.bin".to_string(),
                 source: ModelSource::Url {
-                    url: "https://blob.github.com/itxahmaddev/yap/whisper-medium-q4_1.bin".to_string(),
+                    url: "https://blob.handy.computer/whisper-medium-q4_1.bin".to_string(),
                     sha256: Some(
                         "79283fc1f9fe12ca3248543fbd54b73292164d8df5a16e095e2bceeaaabddf57"
                             .to_string(),
@@ -974,7 +974,7 @@ impl ModelManager {
                 description: "Balanced accuracy and speed.".to_string(),
                 filename: "ggml-large-v3-turbo.bin".to_string(),
                 source: ModelSource::Url {
-                    url: "https://blob.github.com/itxahmaddev/yap/ggml-large-v3-turbo.bin".to_string(),
+                    url: "https://blob.handy.computer/ggml-large-v3-turbo.bin".to_string(),
                     sha256: Some(
                         "1fc70f774d38eb169993ac391eea357ef47c88757ef72ee5943879b7e8e2bc69"
                             .to_string(),
@@ -1004,7 +1004,7 @@ impl ModelManager {
                 description: "Good accuracy, but slow.".to_string(),
                 filename: "ggml-large-v3-q5_0.bin".to_string(),
                 source: ModelSource::Url {
-                    url: "https://blob.github.com/itxahmaddev/yap/ggml-large-v3-q5_0.bin".to_string(),
+                    url: "https://blob.handy.computer/ggml-large-v3-q5_0.bin".to_string(),
                     sha256: Some(
                         "d75795ecff3f83b5faa89d1900604ad8c780abd5739fae406de19f23ecd98ad1"
                             .to_string(),
@@ -1035,7 +1035,7 @@ impl ModelManager {
                     .to_string(),
                 filename: "breeze-asr-q5_k.bin".to_string(),
                 source: ModelSource::Url {
-                    url: "https://blob.github.com/itxahmaddev/yap/breeze-asr-q5_k.bin".to_string(),
+                    url: "https://blob.handy.computer/breeze-asr-q5_k.bin".to_string(),
                     sha256: Some(
                         "8efbf0ce8a3f50fe332b7617da787fb81354b358c288b008d3bdef8359df64c6"
                             .to_string(),
