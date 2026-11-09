@@ -12,10 +12,10 @@ export const SettingsGroup: React.FC<SettingsGroupProps> = ({
   children,
 }) => {
   return (
-    <div className="space-y-2">
+    <section className="space-y-3 w-full animate-rise motion-reduce:animate-none">
       {title && (
-        <div className="px-4">
-          <h2 className="text-xs font-medium text-ink-3 uppercase tracking-wide">
+        <div className="px-2">
+          <h2 className="text-[11px] font-semibold text-ink-3 uppercase tracking-[0.12em]">
             {title}
           </h2>
           {description && (
@@ -23,9 +23,9 @@ export const SettingsGroup: React.FC<SettingsGroupProps> = ({
           )}
         </div>
       )}
-      <div className="bg-background border border-line rounded-lg overflow-visible">
-        <div className="divide-y divide-line">{children}</div>
+      <div className="bg-surface border border-line rounded-3xl shadow-card overflow-visible">
+        <div className="divide-y divide-line/70">{children}</div>
       </div>
-    </div>
+    </section>
   );
 };

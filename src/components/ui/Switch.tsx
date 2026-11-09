@@ -32,7 +32,7 @@ export const Switch: React.FC<SwitchProps> = ({
         disabled={disabled}
         onChange={(e) => onChange(e.target.checked)}
       />
-      <div className="relative w-11 h-6 bg-line peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-logo-primary rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-on-accent after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-background after:shadow-sm after:border-line-strong after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-background-ui peer-disabled:opacity-50"></div>
+      <div className="relative h-[26px] w-[46px] rounded-full bg-text/15 ring-1 ring-inset ring-text/10 transition-colors duration-300 ease-glide peer-focus-visible:ring-2 peer-focus-visible:ring-text/50 peer-checked:bg-background-ui peer-checked:ring-0 peer-disabled:opacity-40 after:absolute after:start-[3px] after:top-[3px] after:size-5 after:rounded-full after:bg-surface after:shadow-[0_1px_3px_rgb(0_0_0/0.35)] after:content-[''] after:transition-transform after:duration-300 after:ease-spring peer-checked:after:translate-x-5 peer-checked:after:bg-on-accent rtl:peer-checked:after:-translate-x-5"></div>
     </label>
   );
 };

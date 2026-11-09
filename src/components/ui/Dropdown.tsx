@@ -54,8 +54,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, []);
 
   // The trigger's hover; in the menu, hover is grey so it never looks chosen.
-  const hover =
-    tone === "neutral" ? "hover:bg-wash" : "hover:bg-logo-primary/10";
+  const hover = tone === "neutral" ? "hover:bg-wash" : "hover:bg-text/5";
   const chosen = tone === "neutral" ? "bg-line" : "bg-logo-primary/15";
 
   const selectedOption = options.find(
@@ -90,10 +89,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         ref={triggerRef}
-        className={`px-2 py-[5px] text-sm font-semibold bg-wash border border-line-strong rounded-md min-w-[200px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-all duration-150 ${
+        className={`px-3.5 py-2 text-sm font-medium bg-surface border border-line-strong/60 rounded-xl shadow-card min-w-[200px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-all duration-150 ${
           disabled
             ? "opacity-50 cursor-not-allowed"
-            : `${hover} cursor-pointer ${tone === "neutral" ? "hover:border-ink-3" : "hover:border-logo-primary"}`
+            : `${hover} cursor-pointer ${tone === "neutral" ? "hover:border-text/60" : "hover:border-text/60"}`
         }`}
         onClick={handleToggle}
         disabled={disabled}
@@ -116,7 +115,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       </button>
       {isOpen && !disabled && (
         <div
-          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-background border border-line rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto p-1 ${
+          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-2xl shadow-pop z-50 animate-drop max-h-60 overflow-y-auto p-1 ${
             menuClassName ?? "left-0 right-0"
           }`}
         >
@@ -131,7 +130,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 <button
                   key={option.value}
                   type="button"
-                  className={`flex w-full items-center gap-2 rounded-md px-2 text-sm text-start transition-colors duration-150 ${
+                  className={`flex w-full items-center gap-2 rounded-lg px-2.5 text-sm text-start transition-colors duration-150 ${
                     option.description ? "py-2" : "py-1.5"
                   } ${isChosen ? chosen : "hover:bg-wash"} ${
                     option.disabled ? "opacity-50 cursor-not-allowed" : ""

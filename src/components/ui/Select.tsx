@@ -39,20 +39,21 @@ type NonCreatableProps = {
 
 export type SelectProps = BaseProps & (CreatableProps | NonCreatableProps);
 
-const baseBackground = "var(--color-wash)";
-const hoverBackground =
-  "color-mix(in srgb, var(--color-logo-primary) 10%, transparent)";
-const focusBackground =
-  "color-mix(in srgb, var(--color-logo-primary) 20%, transparent)";
-const neutralBorder = "var(--color-line-strong)";
+const baseBackground = "var(--color-surface)";
+const hoverBackground = "var(--color-surface)";
+const focusBackground = "var(--color-surface)";
+const neutralBorder =
+  "color-mix(in srgb, var(--color-line-strong) 60%, transparent)";
 
 const selectStyles: StylesConfig<SelectOption, false> = {
   control: (base, state) => ({
     ...base,
     minHeight: 40,
-    borderRadius: 6,
+    borderRadius: 12,
     borderColor: state.isFocused ? "var(--color-logo-primary)" : neutralBorder,
-    boxShadow: state.isFocused ? "0 0 0 1px var(--color-logo-primary)" : "none",
+    boxShadow: state.isFocused
+      ? "0 0 0 4px color-mix(in srgb, var(--color-text) 10%, transparent)"
+      : "none",
     backgroundColor: state.isFocused ? focusBackground : baseBackground,
     fontSize: "0.875rem",
     color: "var(--color-text)",
@@ -92,18 +93,21 @@ const selectStyles: StylesConfig<SelectOption, false> = {
   menu: (provided) => ({
     ...provided,
     zIndex: 30,
-    backgroundColor: "var(--color-background)",
+    backgroundColor: "var(--color-surface)",
     color: "var(--color-text)",
     border: "1px solid var(--color-line)",
-    boxShadow: "0 10px 30px rgba(15, 15, 15, 0.2)",
+    borderRadius: 16,
+    overflow: "hidden",
+    boxShadow: "0 16px 40px -12px rgba(0, 0, 0, 0.3)",
   }),
   option: (base, state) => ({
     ...base,
     backgroundColor: state.isSelected
-      ? focusBackground
+      ? "color-mix(in srgb, var(--color-text) 12%, transparent)"
       : state.isFocused
-        ? hoverBackground
+        ? "color-mix(in srgb, var(--color-text) 6%, transparent)"
         : "transparent",
+    borderRadius: 10,
     color: "var(--color-text)",
     cursor: state.isDisabled ? "not-allowed" : base.cursor,
     opacity: state.isDisabled ? 0.5 : 1,

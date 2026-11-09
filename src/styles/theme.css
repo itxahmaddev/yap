@@ -10,16 +10,18 @@
      light/dark pair; the active tokens below and the `data-theme` overrides
      in App.css reference these, so a hex value lives in exactly one place. */
   --light-color-text: #0a0a0a;
-  --light-color-background: #fcfcfc;
+  --light-color-background: #f2f2f0;
+  --light-color-surface: #ffffff;
   --light-color-logo-primary: #0a0a0a;
   --light-color-logo-stroke: #0a0a0a;
 
   --dark-color-text: #f5f5f5;
-  --dark-color-background: #0f0f0f;
+  --dark-color-background: #090909;
+  --dark-color-surface: #151515;
   --dark-color-logo-primary: #f5f5f5;
   /* Text drawn on top of the accent (primary buttons, active items). */
-  --light-color-on-accent: #fcfcfc;
-  --dark-color-on-accent: #0f0f0f;
+  --light-color-on-accent: #ffffff;
+  --dark-color-on-accent: #090909;
   /* Primary action fill; same ink as the accent. */
   --light-color-background-ui: #0a0a0a;
   --dark-color-background-ui: #f5f5f5;
@@ -136,6 +138,7 @@
      below, or is forced by `data-theme` (see the overrides below). */
   --color-text: var(--light-color-text);
   --color-background: var(--light-color-background);
+  --color-surface: var(--light-color-surface);
   --color-logo-primary: var(--light-color-logo-primary);
   --color-on-accent: var(--light-color-on-accent);
   --color-background-ui: var(--light-color-background-ui);
@@ -176,6 +179,7 @@
   :root {
     --color-text: var(--dark-color-text);
     --color-background: var(--dark-color-background);
+    --color-surface: var(--dark-color-surface);
     --color-logo-primary: var(--dark-color-logo-primary);
     --color-on-accent: var(--dark-color-on-accent);
     --color-background-ui: var(--dark-color-background-ui);
@@ -211,6 +215,7 @@
 :root[data-theme="light"] {
   --color-text: var(--light-color-text);
   --color-background: var(--light-color-background);
+  --color-surface: var(--light-color-surface);
   --color-logo-primary: var(--light-color-logo-primary);
   --color-on-accent: var(--light-color-on-accent);
   --color-background-ui: var(--light-color-background-ui);
@@ -235,6 +240,7 @@
 :root[data-theme="dark"] {
   --color-text: var(--dark-color-text);
   --color-background: var(--dark-color-background);
+  --color-surface: var(--dark-color-surface);
   --color-logo-primary: var(--dark-color-logo-primary);
   --color-on-accent: var(--dark-color-on-accent);
   --color-background-ui: var(--dark-color-background-ui);

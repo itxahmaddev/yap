@@ -92,43 +92,59 @@ export const Sidebar: React.FC<SidebarProps> = ({
     .filter(([_, config]) => config.enabled(settings))
     .map(([id, config]) => ({ id: id as SidebarSection, ...config }));
 
-  return (
-    <nav className="flex h-full w-48 shrink-0 flex-col border-e border-line bg-wash/50 px-3 pb-3">
-      <div className="flex items-center justify-center pb-3 pt-5">
-        <YapTextLogo width={64} />
-      </div>
-      <div className="flex w-full flex-col gap-1 border-t border-line pt-3">
-        {availableSections.map((section, index) => {
-          const Icon = section.icon;
-          const isActive = activeSection === section.id;
+  const activeIndex = Math.max(
+    0,
+    availableSections.findIndex((section) => section.id === activeSection),
+  );
 
-          return (
-            <button
-              type="button"
-              key={section.id}
-              aria-current={isActive ? "page" : undefined}
-              style={{ animationDelay: `${index * 30}ms` }}
-              className={`group flex w-full cursor-pointer items-center gap-2.5 rounded-xl px-3 py-2 text-start animate-rise [animation-fill-mode:backwards] motion-reduce:animate-none transition-[background-color,color,transform] duration-200 ease-glide focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40 active:scale-[0.98] motion-reduce:active:scale-100 ${
-                isActive
-                  ? "bg-text text-background shadow-sm"
-                  : "text-ink-2 hover:bg-line hover:text-text"
-              }`}
-              onClick={() => onSectionChange(section.id)}
-            >
-              <Icon
-                width={20}
-                height={20}
-                className="shrink-0 transition-transform duration-200 ease-glide group-hover:scale-110"
-              />
-              <span
-                className="truncate text-sm font-medium"
-                title={t(section.labelKey)}
+  return (
+    <nav className="shrink-0 p-3 ps-3 pe-0">
+      <div className="flex h-full w-48 flex-col rounded-3xl border border-line bg-surface p-3 shadow-card">
+        <div className="group flex items-center justify-center pb-4 pt-3">
+          <YapTextLogo
+            width={60}
+            className="transition-transform duration-500 ease-spring group-hover:scale-110"
+          />
+        </div>
+        <div className="relative flex w-full flex-col gap-1">
+          {/* The active pill slides between items. */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-x-0 top-0 h-11 rounded-2xl bg-text shadow-pop transition-transform duration-500 ease-spring"
+            style={{ transform: `translateY(${activeIndex * 48}px)` }}
+          />
+          {availableSections.map((section, index) => {
+            const Icon = section.icon;
+            const isActive = activeSection === section.id;
+
+            return (
+              <button
+                type="button"
+                key={section.id}
+                aria-current={isActive ? "page" : undefined}
+                style={{ animationDelay: `${index * 40}ms` }}
+                className={`group relative flex h-11 w-full cursor-pointer items-center gap-3 rounded-2xl px-3.5 text-start animate-rise [animation-fill-mode:backwards] motion-reduce:animate-none transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40 active:scale-[0.97] motion-reduce:active:scale-100 ${
+                  isActive
+                    ? "text-background"
+                    : "text-ink-2 hover:text-text hover:bg-text/5"
+                }`}
+                onClick={() => onSectionChange(section.id)}
               >
-                {t(section.labelKey)}
-              </span>
-            </button>
-          );
-        })}
+                <Icon
+                  width={19}
+                  height={19}
+                  className="shrink-0 transition-transform duration-300 ease-spring group-hover:scale-110"
+                />
+                <span
+                  className="truncate text-sm font-semibold tracking-tight"
+                  title={t(section.labelKey)}
+                >
+                  {t(section.labelKey)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </nav>
   );

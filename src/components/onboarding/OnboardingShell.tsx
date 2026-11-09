@@ -31,7 +31,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
   return (
     <div
       data-onboarding=""
-      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default"
+      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default bg-[radial-gradient(60%_50%_at_50%_0%,color-mix(in_srgb,var(--color-text)_7%,transparent),transparent)]"
     >
       {/* Disabled buttons go neutral so the only pink one is the next step.
           The column is capped so a long row truncates instead of widening. */}
@@ -39,7 +39,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
         <div className="relative flex items-center justify-between ps-[28px] pe-[20px]">
           {progress ? (
             <div
-              className="flex gap-[6px]"
+              className="flex gap-[6px] rounded-full border border-line bg-surface px-[10px] py-[8px] shadow-card"
               role="img"
               aria-label={t("onboarding.shell.progress", {
                 step: progress.index + 1,
@@ -49,12 +49,12 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
               {Array.from({ length: progress.count }, (_, i) => (
                 <i
                   key={i}
-                  className={`h-[4px] rounded-[2px] transition-[width,background-color] duration-300 ease-glide ${
+                  className={`h-[6px] rounded-full transition-[width,background-color] duration-500 ease-spring ${
                     i === progress.index
-                      ? "w-[28px] bg-background-ui"
+                      ? "w-[30px] bg-background-ui"
                       : i < progress.index
-                        ? "w-[14px] bg-ink-3"
-                        : "w-[14px] bg-line"
+                        ? "w-[6px] bg-ink-3"
+                        : "w-[6px] bg-line-strong/50"
                   }`}
                 />
               ))}
@@ -71,7 +71,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
               <button
                 type="button"
                 onClick={onBack}
-                className="-ms-[12px] cursor-pointer rounded-lg border border-transparent px-[12px] py-[7.5px] text-body font-medium text-ink-2 transition-colors hover:bg-wash hover:text-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary"
+                className="-ms-[12px] cursor-pointer rounded-full border border-transparent px-[16px] py-[8px] text-body font-semibold text-ink-2 transition-colors hover:bg-text/10 hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
               >
                 {t("onboarding.shell.back")}
               </button>
