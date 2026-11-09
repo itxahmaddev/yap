@@ -48,7 +48,7 @@ const RetiredModelsNotice: React.FC = () => {
   return (
     <div
       role="status"
-      className="flex items-center gap-3 rounded-lg border border-transparent bg-warning-wash px-3 py-2.5"
+      className="flex items-center gap-3 rounded-2xl border border-transparent bg-warning-wash px-3 py-2.5"
     >
       <TriangleAlert className="h-5 w-5 shrink-0 text-warning" />
       <div className="min-w-0 flex-1">

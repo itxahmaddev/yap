@@ -51,7 +51,7 @@ const IconButton: React.FC<{
   <button
     onClick={onClick}
     disabled={disabled}
-    className={`p-1.5 rounded-md flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed disabled:text-text/20 ${
+    className={`p-1.5 rounded-full flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed disabled:text-text/20 ${
       active
         ? "text-logo-primary hover:text-logo-primary"
         : "text-ink-3 hover:text-logo-primary"
@@ -368,7 +368,7 @@ export const HistorySettings: React.FC = () => {
             />
           </div>
         </div>
-        <div className="bg-background border border-line rounded-lg overflow-visible">
+        <div className="bg-surface border border-line rounded-3xl shadow-card overflow-visible">
           {content}
         </div>
       </div>

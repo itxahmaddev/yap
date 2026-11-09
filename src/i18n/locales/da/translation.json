@@ -885,11 +885,6 @@
         "description": "Se kildekode og bidrag",
         "button": "Vis på GitHub"
       },
-      "supportDevelopment": {
-        "title": "Støt udviklingen",
-        "description": "Hjælp os med at fortsætte udviklingen af Yap",
-        "button": "Donér"
-      },
       "acknowledgments": {
         "title": "Anerkendelser",
         "ggml": {
