@@ -6,6 +6,18 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1]
+
+### Changed
+
+- New minimal interface: flat hairline cards, a flat sidebar, a bottom status
+  bar, slimmer switches and rectangular buttons, in light and dark.
+- Quieter onboarding with an animated waveform.
+
+### Removed
+
+- The donation row on the About page.
+
 ## [0.1.0]
 
 ### Added
