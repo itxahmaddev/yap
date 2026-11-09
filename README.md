@@ -209,10 +209,10 @@ Without these tools, Yap falls back to enigo which may have limited compatibilit
 
 - You can also trigger Yap externally via Unix signals or the CLI flags, which lets Wayland window managers or other hotkey daemons keep ownership of keybindings:
 
-  | Action                                    | Trigger                                                  |
-  | ----------------------------------------- | -------------------------------------------------------- |
+  | Action                                    | Trigger                                              |
+  | ----------------------------------------- | ---------------------------------------------------- |
   | Toggle transcription                      | `pkill -USR2 -n yap` or `yap --toggle-transcription` |
-  | Toggle transcription with post-processing | `yap --toggle-post-process`                            |
+  | Toggle transcription with post-processing | `yap --toggle-post-process`                          |
 
   Example Sway config:
 

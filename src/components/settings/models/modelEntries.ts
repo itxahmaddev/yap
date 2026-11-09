@@ -120,12 +120,7 @@ const usePageState = create<PageState>(() => ({
 
 /** Where a model is: in use, on disk, on its way, or only in the catalog. */
 export type Place =
-  | "active"
-  | "loading"
-  | "ready"
-  | "downloading"
-  | "checking"
-  | "remote";
+  "active" | "loading" | "ready" | "downloading" | "checking" | "remote";
 
 export const usePlace = (id: string): Place => {
   const switching = usePageState((s) => s.switching === id);

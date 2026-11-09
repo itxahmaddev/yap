@@ -264,7 +264,6 @@
   background-color: var(--scrollbar-thumb-hover);
 }
 
-
 /* Monochrome polish */
 ::selection {
   background: var(--color-text);

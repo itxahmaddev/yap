@@ -7,12 +7,7 @@ import {
 } from "@/lib/utils/languageSuggestions";
 
 export type OnboardingStep =
-  | "welcome"
-  | "permissions"
-  | "model"
-  | "demo"
-  | "try"
-  | "done";
+  "welcome" | "permissions" | "model" | "demo" | "try" | "done";
 
 export const STEP_ORDER: OnboardingStep[] = [
   "welcome",

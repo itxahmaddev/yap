@@ -93,9 +93,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
     .map(([id, config]) => ({ id: id as SidebarSection, ...config }));
 
   return (
-    <nav
-      className="flex h-full w-48 shrink-0 flex-col border-e border-line bg-wash/50 px-3 pb-3"
-    >
+    <nav className="flex h-full w-48 shrink-0 flex-col border-e border-line bg-wash/50 px-3 pb-3">
       <div className="flex items-center justify-center pb-3 pt-5">
         <YapTextLogo width={64} />
       </div>
