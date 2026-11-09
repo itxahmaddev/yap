@@ -39,7 +39,11 @@ import { getLanguageDirection, initializeRTL } from "@/lib/utils/rtl";
 
 // flow is first-run onboarding; the rest are single screens for returning users.
 type OnboardingStep =
-  "flow" | "permissions" | "migration" | "replaceModel" | "done";
+  | "flow"
+  | "permissions"
+  | "migration"
+  | "replaceModel"
+  | "done";
 
 const renderSettingsContent = (
   section: SidebarSection,
