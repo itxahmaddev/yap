@@ -314,7 +314,7 @@ impl HandyKeysState {
                     is_key_down: key_event.is_key_down,
                     hotkey_string: key_event
                         .as_hotkey()
-                        .map(|h| h.to_yap_string())
+                        .map(|h| h.to_handy_string())
                         .unwrap_or_default(),
                 };
 
