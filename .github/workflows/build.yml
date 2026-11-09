@@ -448,7 +448,7 @@ jobs:
 
       - name: Build with Tauri (signed)
         if: ${{ inputs.sign-binaries }}
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           APPLE_ID: ${{ inputs.sign-binaries && secrets.APPLE_ID || '' }}
@@ -484,7 +484,7 @@ jobs:
       # whenever APPLE_CERTIFICATE is set, even to an empty string.
       - name: Build with Tauri (unsigned)
         if: ${{ !inputs.sign-binaries }}
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # The Vulkan loader and Wayland client library must come from the host
