@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Cog, FlaskConical, History, Info, Sparkles, Cpu } from "lucide-react";
-import YapTextLogo from "./icons/YapTextLogo";
+import YapWave from "./icons/YapWave";
 import YapHand from "./icons/YapHand";
 import { useSettings } from "../hooks/useSettings";
 import {
@@ -92,59 +92,46 @@ export const Sidebar: React.FC<SidebarProps> = ({
     .filter(([_, config]) => config.enabled(settings))
     .map(([id, config]) => ({ id: id as SidebarSection, ...config }));
 
-  const activeIndex = Math.max(
-    0,
-    availableSections.findIndex((section) => section.id === activeSection),
-  );
-
   return (
-    <nav className="shrink-0 p-3 ps-3 pe-0">
-      <div className="flex h-full w-48 flex-col rounded-3xl border border-line bg-surface p-3 shadow-card">
-        <div className="group flex items-center justify-center pb-4 pt-3">
-          <YapTextLogo
-            width={60}
-            className="transition-transform duration-500 ease-spring group-hover:scale-110"
-          />
-        </div>
-        <div className="relative flex w-full flex-col gap-1">
-          {/* The active pill slides between items. */}
-          <span
-            aria-hidden="true"
-            className="absolute inset-x-0 top-0 h-11 rounded-2xl bg-text shadow-pop transition-transform duration-500 ease-spring"
-            style={{ transform: `translateY(${activeIndex * 48}px)` }}
-          />
-          {availableSections.map((section, index) => {
-            const Icon = section.icon;
-            const isActive = activeSection === section.id;
+    <nav className="flex h-full w-52 shrink-0 flex-col border-e border-line bg-surface px-3 pb-3 pt-4">
+      <div className="mb-5 flex items-center gap-2.5 px-2.5">
+        <YapWave height={18} />
+        <span className="text-[15px] font-semibold tracking-tight">Yap</span>
+      </div>
+      <div className="flex w-full flex-col gap-0.5">
+        {availableSections.map((section, index) => {
+          const Icon = section.icon;
+          const isActive = activeSection === section.id;
 
-            return (
-              <button
-                type="button"
-                key={section.id}
-                aria-current={isActive ? "page" : undefined}
-                style={{ animationDelay: `${index * 40}ms` }}
-                className={`group relative flex h-11 w-full cursor-pointer items-center gap-3 rounded-2xl px-3.5 text-start animate-rise [animation-fill-mode:backwards] motion-reduce:animate-none transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40 active:scale-[0.97] motion-reduce:active:scale-100 ${
-                  isActive
-                    ? "text-background"
-                    : "text-ink-2 hover:text-text hover:bg-text/5"
-                }`}
-                onClick={() => onSectionChange(section.id)}
-              >
-                <Icon
-                  width={19}
-                  height={19}
-                  className="shrink-0 transition-transform duration-300 ease-spring group-hover:scale-110"
-                />
+          return (
+            <button
+              type="button"
+              key={section.id}
+              aria-current={isActive ? "page" : undefined}
+              style={{ animationDelay: `${index * 30}ms` }}
+              className={`group relative flex h-9 w-full cursor-pointer items-center gap-2.5 rounded-lg px-2.5 text-start animate-rise [animation-fill-mode:backwards] motion-reduce:animate-none transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-text/30 ${
+                isActive
+                  ? "bg-text/[0.07] text-text"
+                  : "text-ink-2 hover:bg-text/[0.04] hover:text-text"
+              }`}
+              onClick={() => onSectionChange(section.id)}
+            >
+              {isActive && (
                 <span
-                  className="truncate text-sm font-semibold tracking-tight"
-                  title={t(section.labelKey)}
-                >
-                  {t(section.labelKey)}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+                  aria-hidden="true"
+                  className="absolute -start-3 top-2 bottom-2 w-[3px] rounded-e-full bg-text"
+                />
+              )}
+              <Icon width={17} height={17} className="shrink-0" />
+              <span
+                className="truncate text-[13px] font-medium"
+                title={t(section.labelKey)}
+              >
+                {t(section.labelKey)}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

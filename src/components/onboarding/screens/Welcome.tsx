@@ -88,14 +88,14 @@ export const Welcome: React.FC<WelcomeProps> = ({ progress, onContinue }) => {
     >
       <div className="flex h-full min-h-0 flex-col items-center px-gutter pt-[6px] pb-[4px] text-center">
         <div className="mb-[14px] flex flex-col items-center gap-[10px] leading-none animate-pop motion-reduce:animate-none">
-          <YapWave height={64} animated />
+          <YapWave height={40} animated />
         </div>
         <ScreenHeader
           title={t("onboarding.welcome.title")}
           sub={t("onboarding.welcome.subtitle")}
         />
 
-        <div className="mt-lead flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-panel border border-line bg-surface shadow-card">
+        <div className="mt-lead flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-panel border border-line bg-surface">
           <LanguageSearchField
             picker={picker}
             className="border-b border-line"
@@ -137,7 +137,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ progress, onContinue }) => {
                     role="radio"
                     aria-checked={picked}
                     onClick={() => set({ script: s.id })}
-                    className={`inline-flex h-[34px] cursor-pointer items-center gap-[8px] rounded-full border-[1.5px] bg-surface ps-[10px] pe-[14px] text-small font-semibold text-text ${
+                    className={`inline-flex h-[34px] cursor-pointer items-center gap-[8px] rounded-lg border-[1.5px] bg-surface ps-[10px] pe-[14px] text-small font-semibold text-text ${
                       picked
                         ? "border-plum-pick"
                         : "border-line-strong hover:border-ink-3"

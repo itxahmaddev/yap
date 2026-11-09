@@ -31,15 +31,15 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
   return (
     <div
       data-onboarding=""
-      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default bg-[radial-gradient(60%_50%_at_50%_0%,color-mix(in_srgb,var(--color-text)_7%,transparent),transparent)]"
+      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default "
     >
       {/* Disabled buttons go neutral so the only pink one is the next step.
           The column is capped so a long row truncates instead of widening. */}
-      <div className="relative m-auto grid h-[600px] w-[720px] shrink-0 rounded-[32px] border border-line bg-surface/70 shadow-pop grid-cols-[minmax(0,1fr)] grid-rows-[48px_1fr_76px] font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-line [&_button:disabled]:bg-wash [&_button:disabled]:text-ink-3 [&_button:disabled]:opacity-100">
+      <div className="relative m-auto grid h-[600px] w-[720px] shrink-0 grid-cols-[minmax(0,1fr)] grid-rows-[48px_1fr_76px] font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-line [&_button:disabled]:bg-wash [&_button:disabled]:text-ink-3 [&_button:disabled]:opacity-100">
         <div className="relative flex items-center justify-between ps-[28px] pe-[20px]">
           {progress ? (
             <div
-              className="flex gap-[6px] rounded-full border border-line bg-surface px-[10px] py-[8px] shadow-card"
+              className="flex gap-[6px]"
               role="img"
               aria-label={t("onboarding.shell.progress", {
                 step: progress.index + 1,
@@ -49,12 +49,12 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
               {Array.from({ length: progress.count }, (_, i) => (
                 <i
                   key={i}
-                  className={`h-[6px] rounded-full transition-[width,background-color] duration-500 ease-spring ${
+                  className={`h-[3px] rounded-full transition-[width,background-color] duration-300 ease-glide ${
                     i === progress.index
-                      ? "w-[30px] bg-background-ui"
+                      ? "w-[24px] bg-background-ui"
                       : i < progress.index
-                        ? "w-[6px] bg-ink-3"
-                        : "w-[6px] bg-line-strong/50"
+                        ? "w-[12px] bg-ink-3"
+                        : "w-[12px] bg-line-strong/50"
                   }`}
                 />
               ))}
@@ -71,7 +71,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
               <button
                 type="button"
                 onClick={onBack}
-                className="-ms-[12px] cursor-pointer rounded-full border border-transparent px-[16px] py-[8px] text-body font-semibold text-ink-2 transition-colors hover:bg-text/10 hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
+                className="-ms-[12px] cursor-pointer rounded-lg border border-transparent px-[14px] py-[8px] text-body font-medium text-ink-2 transition-colors hover:bg-text/10 hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
               >
                 {t("onboarding.shell.back")}
               </button>
@@ -163,7 +163,7 @@ export const ScreenTitle: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => (
   <h1
-    className={`m-0 font-display leading-[1.15] tracking-[-0.015em] text-balance text-title font-[650] ${className}`}
+    className={`m-0 font-display leading-[1.15] tracking-[-0.02em] text-balance text-title font-semibold ${className}`}
   >
     {children}
   </h1>

@@ -49,10 +49,10 @@ const selectStyles: StylesConfig<SelectOption, false> = {
   control: (base, state) => ({
     ...base,
     minHeight: 40,
-    borderRadius: 12,
+    borderRadius: 8,
     borderColor: state.isFocused ? "var(--color-logo-primary)" : neutralBorder,
     boxShadow: state.isFocused
-      ? "0 0 0 4px color-mix(in srgb, var(--color-text) 10%, transparent)"
+      ? "0 0 0 2px color-mix(in srgb, var(--color-text) 10%, transparent)"
       : "none",
     backgroundColor: state.isFocused ? focusBackground : baseBackground,
     fontSize: "0.875rem",
@@ -96,7 +96,7 @@ const selectStyles: StylesConfig<SelectOption, false> = {
     backgroundColor: "var(--color-surface)",
     color: "var(--color-text)",
     border: "1px solid var(--color-line)",
-    borderRadius: 16,
+    borderRadius: 12,
     overflow: "hidden",
     boxShadow: "0 16px 40px -12px rgba(0, 0, 0, 0.3)",
   }),
@@ -107,7 +107,7 @@ const selectStyles: StylesConfig<SelectOption, false> = {
       : state.isFocused
         ? "color-mix(in srgb, var(--color-text) 6%, transparent)"
         : "transparent",
-    borderRadius: 10,
+    borderRadius: 6,
     color: "var(--color-text)",
     cursor: state.isDisabled ? "not-allowed" : base.cursor,
     opacity: state.isDisabled ? 0.5 : 1,

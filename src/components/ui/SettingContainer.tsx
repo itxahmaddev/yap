@@ -33,8 +33,8 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
   );
 
   const containerClasses = grouped
-    ? "px-5 py-3"
-    : "px-5 py-3 rounded-2xl border border-line bg-surface";
+    ? "px-4 py-3"
+    : "px-4 py-3 rounded-xl border border-line bg-surface";
 
   if (layout === "stacked") {
     if (descriptionMode === "tooltip") {
@@ -42,7 +42,7 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
         <div className={containerClasses}>
           <div className="flex items-center gap-2 mb-2">
             <h3
-              className={`text-sm font-semibold tracking-tight ${disabled ? "opacity-50" : ""}`}
+              className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}
             >
               {title}
             </h3>
@@ -56,9 +56,7 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
     return (
       <div className={containerClasses}>
         <div className="mb-2">
-          <h3
-            className={`text-sm font-semibold tracking-tight ${disabled ? "opacity-50" : ""}`}
-          >
+          <h3 className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}>
             {title}
           </h3>
           <p className={`text-sm ${disabled ? "opacity-50" : ""}`}>
@@ -73,8 +71,8 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
   // Horizontal layout (default)
   const horizontalContainerClasses = `${
     grouped
-      ? "flex items-center justify-between gap-4 min-h-14 px-5 py-3"
-      : "flex items-center justify-between gap-4 min-h-14 px-5 py-3 rounded-2xl border border-line bg-surface"
+      ? "flex items-center justify-between gap-4 min-h-14 px-4 py-3"
+      : "flex items-center justify-between gap-4 min-h-14 px-4 py-3 rounded-xl border border-line bg-surface"
   }${grow ? " gap-4" : ""}`;
   const titleClasses = grow ? "max-w-2/3 shrink-0" : "max-w-2/3";
   const controlClasses = grow
@@ -87,7 +85,7 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
         <div className={titleClasses}>
           <div className="flex items-center gap-2">
             <h3
-              className={`text-sm font-semibold tracking-tight ${disabled ? "opacity-50" : ""}`}
+              className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}
             >
               {title}
             </h3>
@@ -102,9 +100,7 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
   return (
     <div className={horizontalContainerClasses}>
       <div className={titleClasses}>
-        <h3
-          className={`text-sm font-semibold tracking-tight ${disabled ? "opacity-50" : ""}`}
-        >
+        <h3 className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}>
           {title}
         </h3>
         <p className={`text-sm ${disabled ? "opacity-50" : ""}`}>

@@ -29,7 +29,7 @@ const ModelDropdown: React.FC<ModelDropdownProps> = ({
   };
 
   return (
-    <div className="absolute bottom-full start-0 mb-2 w-64 max-h-[60vh] overflow-y-auto bg-surface border border-line rounded-2xl animate-pop shadow-lg py-2 z-50">
+    <div className="absolute bottom-full start-0 mb-2 w-64 max-h-[60vh] overflow-y-auto bg-surface border border-line rounded-xl animate-pop shadow-lg py-2 z-50">
       {locked && (
         <div className="px-3 pb-2 mb-1 text-xs text-ink-2 border-b border-line">
           {t("modelSelector.lockedWhileTranscribing")}

@@ -89,7 +89,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         ref={triggerRef}
-        className={`px-3.5 py-2 text-sm font-medium bg-surface border border-line-strong/60 rounded-xl shadow-card min-w-[200px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-all duration-150 ${
+        className={`px-3 py-1.5 text-sm font-medium bg-surface border border-line-strong/60 rounded-lg min-w-[200px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-all duration-150 ${
           disabled
             ? "opacity-50 cursor-not-allowed"
             : `${hover} cursor-pointer ${tone === "neutral" ? "hover:border-text/60" : "hover:border-text/60"}`
@@ -115,7 +115,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       </button>
       {isOpen && !disabled && (
         <div
-          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-2xl shadow-pop z-50 animate-drop max-h-60 overflow-y-auto p-1 ${
+          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-xl shadow-pop z-50 animate-drop max-h-60 overflow-y-auto p-1 ${
             menuClassName ?? "left-0 right-0"
           }`}
         >

@@ -10,14 +10,14 @@
      light/dark pair; the active tokens below and the `data-theme` overrides
      in App.css reference these, so a hex value lives in exactly one place. */
   --light-color-text: #0a0a0a;
-  --light-color-background: #f2f2f0;
+  --light-color-background: #fafafa;
   --light-color-surface: #ffffff;
   --light-color-logo-primary: #0a0a0a;
   --light-color-logo-stroke: #0a0a0a;
 
   --dark-color-text: #f5f5f5;
-  --dark-color-background: #090909;
-  --dark-color-surface: #151515;
+  --dark-color-background: #0a0a0a;
+  --dark-color-surface: #111111;
   --dark-color-logo-primary: #f5f5f5;
   /* Text drawn on top of the accent (primary buttons, active items). */
   --light-color-on-accent: #ffffff;

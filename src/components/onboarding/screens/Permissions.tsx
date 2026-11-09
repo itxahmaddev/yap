@@ -39,7 +39,7 @@ const PermissionRow: React.FC<PermissionRowProps> = ({
   return (
     <div className="grid grid-cols-[46px_1fr_minmax(112px,auto)] items-center gap-[18px] py-[18px] [&+&]:border-t [&+&]:border-line">
       {/* A label, not a key: neutral, and "Allowed" alone shows the grant. */}
-      <span className="grid size-[46px] place-items-center rounded-2xl bg-text text-background shadow-card">
+      <span className="grid size-[46px] place-items-center rounded-xl bg-text text-background">
         {icon}
       </span>
       <div>
@@ -167,7 +167,7 @@ export const Permissions: React.FC<PermissionsProps> = ({
           />
         }
       >
-        <div className="flex w-full flex-col rounded-panel border border-line bg-surface shadow-card px-[22px] py-[4px] text-start">
+        <div className="flex w-full flex-col rounded-panel border border-line bg-surface px-[22px] py-[4px] text-start">
           <PermissionRow
             icon={<Mic size={20} aria-hidden="true" />}
             title={t("onboarding.permissions.microphone.name")}

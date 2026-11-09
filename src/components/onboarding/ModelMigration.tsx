@@ -316,7 +316,7 @@ const ModelMigration: React.FC<ModelMigrationProps> = ({
           />
         }
       >
-        <ul className="mb-0 flex min-h-0 w-full flex-col overflow-y-auto rounded-panel border border-line bg-surface shadow-card px-[22px] py-[4px] text-start">
+        <ul className="mb-0 flex min-h-0 w-full flex-col overflow-y-auto rounded-panel border border-line bg-surface px-[22px] py-[4px] text-start">
           {rows.map((pair) => (
             <MigrationRow
               key={pair.retired.id}
