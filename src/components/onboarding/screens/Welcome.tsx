@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button } from "../../ui/Button";
 import { Radio } from "../../ui/Radio";
-import YapWave from "../../icons/YapWave";
 import {
   LanguageOptions,
   LanguageSearchField,
@@ -86,10 +85,7 @@ export const Welcome: React.FC<WelcomeProps> = ({ progress, onContinue }) => {
         </Button>
       }
     >
-      <div className="flex h-full min-h-0 flex-col items-center px-gutter pt-[6px] pb-[4px] text-center">
-        <div className="mb-[14px] flex flex-col items-center gap-[10px] leading-none animate-pop motion-reduce:animate-none">
-          <YapWave height={40} animated />
-        </div>
+      <div className="flex h-full min-h-0 flex-col items-stretch px-gutter pt-[2px] pb-[4px] text-start">
         <ScreenHeader
           title={t("onboarding.welcome.title")}
           sub={t("onboarding.welcome.subtitle")}

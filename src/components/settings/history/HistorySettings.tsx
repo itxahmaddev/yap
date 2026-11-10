@@ -12,6 +12,7 @@ import {
   Copy,
   FileAudio,
   FilePlus,
+  History,
   FolderOpen,
   RotateCcw,
   Star,
@@ -313,7 +314,10 @@ export const HistorySettings: React.FC = () => {
     );
   } else if (entries.length === 0 && reads.length === 0) {
     content = (
-      <div className="px-4 py-3 text-center text-ink-2">
+      <div className="flex flex-col items-center gap-3 rounded-[18px] border border-dashed border-line-strong/50 px-6 py-12 text-center text-[13px] text-ink-2">
+        <span className="grid size-12 place-items-center rounded-[14px] bg-text/[0.06]">
+          <History className="size-5" />
+        </span>
         {t("settings.history.empty")}
       </div>
     );
@@ -321,7 +325,7 @@ export const HistorySettings: React.FC = () => {
     content = (
       <>
         <AudioPlayerGroup>
-          <div className="divide-y divide-line">
+          <div className="flex flex-col gap-2.5">
             {reads.map((read) => (
               <FileReadRow key={`read-${read.id}`} read={read} />
             ))}
@@ -347,15 +351,13 @@ export const HistorySettings: React.FC = () => {
   }
 
   return (
-    <div className="max-w-3xl w-full mx-auto space-y-6">
-      <div className="space-y-2">
-        <div className="px-4 flex items-center justify-between">
-          <div>
-            <h2 className="text-xs font-medium text-ink-3 uppercase tracking-wide">
-              {t("settings.history.title")}
-            </h2>
-          </div>
-          <div className="flex items-center gap-2">
+    <div className="w-full space-y-8">
+      <div className="space-y-4">
+        <div className="flex items-center justify-between gap-3 rounded-[14px] border border-line bg-surface px-3 py-2">
+          <h2 className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">
+            {t("settings.history.title")}
+          </h2>
+          <div className="flex items-center gap-1.5">
             <HeaderButton
               onClick={transcribeFile}
               label={t("settings.history.transcribeFile")}
@@ -368,9 +370,7 @@ export const HistorySettings: React.FC = () => {
             />
           </div>
         </div>
-        <div className="bg-surface border border-line rounded-xl shadow-card overflow-visible">
-          {content}
-        </div>
+        <div className="overflow-visible">{content}</div>
       </div>
     </div>
   );
@@ -465,10 +465,13 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
   }
 
   return (
-    <div className="px-4 py-2 pb-5 flex flex-col gap-3">
+    <div className="relative flex flex-col gap-3 rounded-[16px] border border-line bg-surface px-4 py-3.5 transition-colors duration-200 hover:border-text/20">
       <div className="flex justify-between items-center gap-3">
         <div className="flex items-center gap-2 min-w-0">
-          <p className="text-sm font-medium shrink-0">{formattedDate}</p>
+          <p className="m-0 inline-flex shrink-0 items-center gap-2 text-[12px] font-semibold text-ink-2">
+            <span className="size-1.5 rounded-full bg-text/50" />
+            {formattedDate}
+          </p>
           {entry.source_name && (
             <span
               className="flex items-center gap-1 min-w-0 text-sm text-ink-3"

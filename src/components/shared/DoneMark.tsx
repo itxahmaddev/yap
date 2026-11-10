@@ -4,7 +4,7 @@ import React from "react";
 export const DoneMark: React.FC = () => (
   <span
     aria-hidden="true"
-    className="inline-grid place-items-center shrink-0 size-[16px] rounded-full bg-moss text-background"
+    className="inline-grid place-items-center shrink-0 size-[16px] rounded-[5px] bg-text text-background"
   >
     <svg
       width="11"

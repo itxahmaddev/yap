@@ -39,28 +39,29 @@ type NonCreatableProps = {
 
 export type SelectProps = BaseProps & (CreatableProps | NonCreatableProps);
 
-const baseBackground = "var(--color-surface)";
-const hoverBackground = "var(--color-surface)";
+const baseBackground = "color-mix(in srgb, var(--color-text) 6%, transparent)";
+const hoverBackground =
+  "color-mix(in srgb, var(--color-text) 10%, transparent)";
 const focusBackground = "var(--color-surface)";
-const neutralBorder =
-  "color-mix(in srgb, var(--color-line-strong) 60%, transparent)";
+const neutralBorder = "transparent";
 
 const selectStyles: StylesConfig<SelectOption, false> = {
   control: (base, state) => ({
     ...base,
-    minHeight: 40,
-    borderRadius: 8,
-    borderColor: state.isFocused ? "var(--color-logo-primary)" : neutralBorder,
+    minHeight: 36,
+    borderRadius: 10,
+    borderColor: state.isFocused
+      ? "color-mix(in srgb, var(--color-text) 40%, transparent)"
+      : neutralBorder,
     boxShadow: state.isFocused
-      ? "0 0 0 2px color-mix(in srgb, var(--color-text) 10%, transparent)"
+      ? "0 0 0 4px color-mix(in srgb, var(--color-text) 6%, transparent)"
       : "none",
     backgroundColor: state.isFocused ? focusBackground : baseBackground,
-    fontSize: "0.875rem",
+    fontSize: "13px",
     color: "var(--color-text)",
     transition: "all 150ms ease",
     ":hover": {
-      borderColor: "var(--color-logo-primary)",
-      backgroundColor: hoverBackground,
+      backgroundColor: state.isFocused ? focusBackground : hoverBackground,
     },
   }),
   valueContainer: (base) => ({

@@ -6,6 +6,22 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.2.0]
+
+### Changed
+
+- Complete interface redesign.
+- New navigation: a grouped sidebar (Workspace, Preferences, App) with a new
+  icon set, and the model, status and version moved into the sidebar.
+- New pages: Home, Dictation, Audio, Languages, Output, Appearance and System.
+  Settings from the old General and Advanced pages are spread across them.
+- Settings are shown as a grid of tiles, with descriptions on each tile.
+- New controls: check-mark switches, filled selectors and buttons.
+- New Home page with your shortcut, current model and quick settings.
+- New welcome flow with a dark side rail and vertical step tracker.
+- Restyled model list and history timeline.
+- New recording dock: a solid black island with a white waveform.
+
 ## [0.1.1]
 
 ### Changed

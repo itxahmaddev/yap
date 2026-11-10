@@ -65,7 +65,7 @@
   --radius-chip: 6px; /* grade chips */
 
   /* Onboarding's side gutter. */
-  --spacing-gutter: 64px;
+  --spacing-gutter: 32px;
   /* Gap under a screen's title; grows to the max when there's room. */
   --spacing-lead: 20px;
   --spacing-lead-max: 32px;

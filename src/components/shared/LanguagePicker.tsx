@@ -73,7 +73,7 @@ export const LanguageChip: React.FC<LanguageChipProps> = ({
   }
   if (locked)
     return (
-      <span className="inline-flex h-[28px] items-center rounded-full border-[1.5px] border-line-strong bg-background px-[12px] text-small font-semibold text-text">
+      <span className="inline-flex h-[28px] items-center rounded-[8px] bg-text px-[10px] text-small font-semibold text-background">
         {name}
       </span>
     );
@@ -86,10 +86,10 @@ export const LanguageChip: React.FC<LanguageChipProps> = ({
         e.preventDefault();
         onRemove();
       }}
-      className="group inline-flex h-[28px] cursor-pointer items-center gap-[6px] rounded-full border-[1.5px] border-line-strong bg-background ps-[12px] pe-[6px] text-small font-semibold text-text hover:border-ink-3"
+      className="group inline-flex h-[28px] cursor-pointer items-center gap-[6px] rounded-[8px] bg-text ps-[10px] pe-[4px] text-small font-semibold text-background hover:bg-text/85"
     >
       {name}
-      <span className="grid size-[18px] place-items-center rounded-full leading-none text-ink-2 group-hover:bg-line">
+      <span className="grid size-[18px] place-items-center rounded-[5px] leading-none text-background/70 group-hover:bg-background/15 group-hover:text-background">
         <RemoveIcon />
       </span>
     </button>
@@ -115,7 +115,7 @@ export const LanguageOption: React.FC<LanguageOptionProps> = ({
   <button
     type="button"
     onClick={onPick}
-    className={`flex h-[46px] cursor-pointer flex-col justify-center rounded-[9px] px-[12px] text-start leading-[1.25] hover:bg-wash ${
+    className={`flex h-[48px] cursor-pointer flex-col justify-center rounded-[10px] border border-transparent px-[12px] text-start leading-[1.25] transition-colors hover:border-line hover:bg-text/[0.04] ${
       highlighted
         ? "border-[1.5px] border-line-strong bg-wash"
         : "border border-transparent"

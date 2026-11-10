@@ -21,34 +21,35 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-1.5 font-medium rounded-lg border focus:outline-none transition-[background-color,border-color,color,transform,box-shadow] duration-200 ease-glide active:scale-[0.98] motion-reduce:active:scale-100 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none cursor-pointer select-none";
+    "inline-flex items-center justify-center gap-1.5 font-medium rounded-[10px] border focus:outline-none transition-[background-color,border-color,color,box-shadow,transform] duration-150 ease-glide active:translate-y-px motion-reduce:active:translate-y-0 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer select-none whitespace-nowrap";
 
   const variantClasses = {
+    // Solid ink with a soft top highlight
     primary:
-      "text-on-accent bg-background-ui border-background-ui hover:bg-background-ui/85 focus-visible:ring-2 focus-visible:ring-text/30 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+      "text-on-accent bg-background-ui border-background-ui shadow-[inset_0_1px_0_rgb(255_255_255/0.14),0_1px_2px_rgb(0_0_0/0.2)] hover:bg-background-ui/88 focus-visible:ring-4 focus-visible:ring-text/15",
     "primary-soft":
-      "text-text bg-text/10 border-transparent hover:bg-text/15 focus-visible:ring-2 focus-visible:ring-text/30",
+      "text-text bg-text/[0.08] border-transparent hover:bg-text/[0.12] focus-visible:ring-4 focus-visible:ring-text/10",
+    // Filled, borderless
     secondary:
-      "text-text bg-surface border-line-strong/60 hover:bg-wash hover:border-text/50 focus-visible:ring-2 focus-visible:ring-text/30",
-    // For screens where secondary's fill reads as disabled (onboarding)
+      "text-text bg-text/[0.06] border-transparent hover:bg-text/[0.1] focus-visible:ring-4 focus-visible:ring-text/10",
+    // For screens where a fill reads as disabled (onboarding)
     outline:
-      "text-text bg-transparent border-line-strong hover:border-text hover:bg-surface focus-visible:ring-2 focus-visible:ring-text/30",
-    // Neutral resting look, but hover/focus use the semantic warning color,
-    // for buttons sitting on warning surfaces like SecureInputWarning
+      "text-text bg-transparent border-text/25 hover:border-text/60 hover:bg-text/[0.04] focus-visible:ring-4 focus-visible:ring-text/10",
+    // Neutral resting look; hover/focus use the semantic warning color
     warning:
-      "text-text bg-surface border-line hover:bg-warning-wash hover:border-warning focus-visible:ring-2 focus-visible:ring-warning",
+      "text-text bg-text/[0.06] border-transparent hover:bg-warning-wash hover:border-warning focus-visible:ring-2 focus-visible:ring-warning",
     danger:
-      "text-background bg-error border-error hover:bg-error/85 focus-visible:ring-2 focus-visible:ring-error",
+      "text-background bg-error border-error hover:bg-error/85 focus-visible:ring-4 focus-visible:ring-error/25",
     "danger-ghost":
       "text-error border-transparent hover:bg-error-wash focus:bg-error-wash",
     ghost:
-      "text-current border-transparent hover:bg-text/10 focus-visible:bg-text/10",
+      "text-current border-transparent hover:bg-text/[0.07] focus-visible:bg-text/[0.07]",
   };
 
   const sizeClasses = {
-    sm: "px-2.5 py-1 text-xs",
-    md: "px-3.5 py-1.5 text-sm",
-    lg: "px-5 py-2 text-[15px]",
+    sm: "h-7 px-2.5 text-xs",
+    md: "h-9 px-3.5 text-[13px]",
+    lg: "h-11 px-5 text-sm",
   };
 
   return (

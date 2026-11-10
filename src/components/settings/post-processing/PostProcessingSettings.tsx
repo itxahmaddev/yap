@@ -466,7 +466,7 @@ export const PostProcessingSettings: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="max-w-3xl w-full mx-auto space-y-6">
+    <div className="w-full space-y-8">
       <SettingsGroup title={t("settings.postProcessing.hotkey.title")}>
         <ShortcutInput
           shortcutId="transcribe_with_post_process"
@@ -475,11 +475,17 @@ export const PostProcessingSettings: React.FC = () => {
         />
       </SettingsGroup>
 
-      <SettingsGroup title={t("settings.postProcessing.api.title")}>
+      <SettingsGroup
+        title={t("settings.postProcessing.api.title")}
+        layout="list"
+      >
         <PostProcessingSettingsApi />
       </SettingsGroup>
 
-      <SettingsGroup title={t("settings.postProcessing.prompts.title")}>
+      <SettingsGroup
+        title={t("settings.postProcessing.prompts.title")}
+        layout="list"
+      >
         <PostProcessingSettingsPrompts />
       </SettingsGroup>
     </div>

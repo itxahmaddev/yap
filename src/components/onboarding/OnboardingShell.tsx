@@ -1,3 +1,4 @@
+import YapWave from "../icons/YapWave";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -31,15 +32,19 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
   return (
     <div
       data-onboarding=""
-      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default "
+      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default"
     >
-      {/* Disabled buttons go neutral so the only pink one is the next step.
+      {/* Disabled buttons go neutral so the only filled one is the next step.
           The column is capped so a long row truncates instead of widening. */}
-      <div className="relative m-auto grid h-[600px] w-[720px] shrink-0 grid-cols-[minmax(0,1fr)] grid-rows-[48px_1fr_76px] font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-line [&_button:disabled]:bg-wash [&_button:disabled]:text-ink-3 [&_button:disabled]:opacity-100">
-        <div className="relative flex items-center justify-between ps-[28px] pe-[20px]">
+      <div className="relative m-auto flex h-[600px] w-[720px] shrink-0 font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-line [&_button:disabled]:bg-wash [&_button:disabled]:text-ink-3 [&_button:disabled]:opacity-100 [&_button:disabled]:shadow-none">
+        {/* Dark rail: the mark, a vertical step tracker, and the step count */}
+        <aside className="relative m-2 me-0 flex w-[76px] shrink-0 flex-col items-center justify-between overflow-hidden rounded-[20px] bg-text py-5 text-background">
+          <span className="grid size-10 place-items-center rounded-[12px] bg-background/10">
+            <YapWave height={18} animated />
+          </span>
           {progress ? (
             <div
-              className="flex gap-[6px]"
+              className="flex flex-col items-center gap-[6px]"
               role="img"
               aria-label={t("onboarding.shell.progress", {
                 step: progress.index + 1,
@@ -49,12 +54,12 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
               {Array.from({ length: progress.count }, (_, i) => (
                 <i
                   key={i}
-                  className={`h-[3px] rounded-full transition-[width,background-color] duration-300 ease-glide ${
+                  className={`w-[6px] rounded-full transition-[height,background-color] duration-500 ease-glide ${
                     i === progress.index
-                      ? "w-[24px] bg-background-ui"
+                      ? "h-[34px] bg-background"
                       : i < progress.index
-                        ? "w-[12px] bg-ink-3"
-                        : "w-[12px] bg-line-strong/50"
+                        ? "h-[6px] bg-background/60"
+                        : "h-[6px] bg-background/20"
                   }`}
                 />
               ))}
@@ -62,28 +67,39 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
           ) : (
             <span />
           )}
-          {pill}
-        </div>
-        <div className="min-h-0">{children}</div>
-        <div className="flex items-center justify-between gap-[16px] px-[28px] pb-[4px]">
-          {left ??
-            (onBack ? (
-              <button
-                type="button"
-                onClick={onBack}
-                className="-ms-[12px] cursor-pointer rounded-lg border border-transparent px-[14px] py-[8px] text-body font-medium text-ink-2 transition-colors hover:bg-text/10 hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
-              >
-                {t("onboarding.shell.back")}
-              </button>
-            ) : (
-              <span />
-            ))}
-          <div
-            className={`ms-auto min-w-0 text-small ${hintTone === "warning" ? "text-warning" : "text-ink-3"}`}
-          >
-            {hint}
+          <span className="font-mono text-[11px] font-semibold tabular-nums text-background/60">
+            {progress ? `${progress.index + 1}/${progress.count}` : ""}
+          </span>
+        </aside>
+
+        <div className="grid min-w-0 flex-1 grid-cols-[minmax(0,1fr)] grid-rows-[52px_1fr_76px]">
+          <div className="relative flex items-center justify-end ps-[24px] pe-[20px]">
+            {pill}
           </div>
-          {primary}
+          <div className="min-h-0">{children}</div>
+          <div className="flex items-center justify-between gap-[16px] px-[24px] pb-[4px]">
+            {left ??
+              (onBack ? (
+                <button
+                  type="button"
+                  onClick={onBack}
+                  className="-ms-[10px] inline-flex cursor-pointer items-center gap-1.5 rounded-[10px] border border-transparent px-[12px] py-[8px] text-body font-medium text-ink-2 transition-colors hover:bg-text/[0.07] hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
+                >
+                  <span aria-hidden="true" className="rtl:rotate-180">
+                    &larr;
+                  </span>
+                  {t("onboarding.shell.back")}
+                </button>
+              ) : (
+                <span />
+              ))}
+            <div
+              className={`ms-auto min-w-0 text-small ${hintTone === "warning" ? "text-warning" : "text-ink-3"}`}
+            >
+              {hint}
+            </div>
+            {primary}
+          </div>
         </div>
       </div>
     </div>
@@ -149,7 +165,7 @@ export const ScreenHeader: React.FC<{
   /** Note above the title, out of flow so it doesn't push the title down. */
   above?: React.ReactNode;
 }> = ({ title, sub, subClassName, above }) => (
-  <div className="relative w-full flex-none">
+  <div className="relative w-full flex-none text-start">
     {above && (
       <div className="absolute inset-x-0 bottom-full mb-[12px]">{above}</div>
     )}
@@ -163,7 +179,7 @@ export const ScreenTitle: React.FC<{
   className?: string;
 }> = ({ children, className = "" }) => (
   <h1
-    className={`m-0 font-display leading-[1.15] tracking-[-0.02em] text-balance text-title font-semibold ${className}`}
+    className={`m-0 font-display text-[28px] leading-[1.1] tracking-[-0.03em] text-balance font-bold ${className}`}
   >
     {children}
   </h1>
@@ -173,7 +189,9 @@ export const ScreenSub: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = "" }) => (
-  <p className={`mt-[4px] mb-0 text-ink-2 text-pretty ${className}`}>
+  <p
+    className={`mt-[6px] mb-0 text-[14px] text-ink-2 text-pretty ${className}`}
+  >
     {children}
   </p>
 );

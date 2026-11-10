@@ -139,13 +139,12 @@ export const ModelsSettings: React.FC<ModelsSettingsProps> = ({
     <div className="mx-auto flex min-h-0 w-full max-w-3xl flex-1 flex-col">
       {/* The title, and across from it where to change the languages the
           grades are for. */}
-      <div className="mb-[16px] flex flex-none items-center justify-between gap-[12px] px-[12px]">
-        <h1 className="text-xl font-semibold">{t("settings.models.title")}</h1>
+      <div className="mb-[12px] flex flex-none items-center justify-end gap-[12px] px-[4px] empty:hidden">
         {onChangeLanguages && (
           <button
             type="button"
             onClick={onChangeLanguages}
-            className="shrink-0 cursor-pointer text-sm text-text underline decoration-line-strong underline-offset-[3px] hover:decoration-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary"
+            className="inline-flex h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-[9px] bg-text/[0.06] px-3 text-[12.5px] font-medium text-text transition-colors hover:bg-text/[0.1] focus:outline-none focus-visible:ring-2 focus-visible:ring-text/30"
           >
             {t("settings.models.changeLanguages")}
           </button>

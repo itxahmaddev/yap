@@ -145,13 +145,13 @@ export const ModelTableRow: React.FC<ModelTableRowProps> = ({
         }
       }}
       title={hint}
-      className={`group relative ${rowGrid(actions)} min-h-[50px] w-full min-w-0 flex-none rounded-control px-[14px] py-[9px] text-start text-small leading-[1.5] text-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${vt ? "[view-transition-class:mf-row_mf-box]" : ""} ${
+      className={`group relative ${rowGrid(actions)} min-h-[54px] w-full min-w-0 flex-none rounded-[12px] px-[14px] py-[10px] transition-colors duration-150 text-start text-small leading-[1.5] text-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${vt ? "[view-transition-class:mf-row_mf-box]" : ""} ${
         tail
           ? "bg-wash"
           : selected
-            ? // A quiet grey fill, a step past hover's wash.
-              "cursor-default bg-line"
-            : `${inert ? "cursor-default" : "cursor-pointer hover:bg-wash"} ${highlighted === entry.id ? "bg-wash" : ""}`
+            ? // The active model: an inked outline instead of a fill.
+              "cursor-default bg-text/[0.05] shadow-[inset_0_0_0_1.5px_var(--color-text)]"
+            : `${inert ? "cursor-default" : "cursor-pointer hover:bg-text/[0.04]"} ${highlighted === entry.id ? "bg-wash" : ""}`
       }`}
     >
       <span

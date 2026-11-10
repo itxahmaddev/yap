@@ -49,6 +49,7 @@ export const Slider: React.FC<SliderProps> = ({
       grouped={grouped}
       layout="horizontal"
       disabled={disabled}
+      grow
     >
       <div className="w-full">
         <div className="flex items-center space-x-1 h-6">

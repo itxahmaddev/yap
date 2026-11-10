@@ -246,9 +246,9 @@ export const ModelTable: React.FC<ModelTableProps> = ({
             setHighlighted(null);
             if (listRef.current) listRef.current.scrollTop = 0;
           }}
-          className={`flex h-[26px] shrink-0 cursor-pointer items-center gap-[6px] whitespace-nowrap rounded-[7px] px-[8px] text-small font-medium transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${
+          className={`flex h-[28px] shrink-0 cursor-pointer items-center gap-[6px] whitespace-nowrap rounded-[8px] px-[10px] text-small font-medium transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${
             filters[key]
-              ? "bg-line text-text"
+              ? "bg-text text-background"
               : "text-ink-3 hover:bg-wash hover:text-text"
           }`}
         >
@@ -263,13 +263,13 @@ export const ModelTable: React.FC<ModelTableProps> = ({
     <ModelTableContext.Provider value={{ grading, actions, highlighted }}>
       <div
         ref={panelRef}
-        className={`group/list flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-panel bg-surface shadow-card text-start ${
+        className={`group/list flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[18px] bg-surface text-start ${
           thinEdge ? "border border-line" : "border border-line"
         }`}
       >
         {/* The magnifier and input align with the marks and names columns. */}
-        <div className="flex-none border-b border-line px-[6px]">
-          <div className="flex h-[46px] items-center gap-[4px] ps-[14px] pe-[4px]">
+        <div className="flex-none border-b border-line bg-text/[0.02] px-[6px]">
+          <div className="flex h-[50px] items-center gap-[4px] ps-[14px] pe-[4px]">
             <label className="flex h-full min-w-0 flex-1 cursor-text items-center gap-[10px]">
               <span className="grid w-[18px] shrink-0 place-items-center text-ink-3">
                 <Search size={15} aria-hidden="true" />

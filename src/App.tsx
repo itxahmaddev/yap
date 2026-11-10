@@ -14,7 +14,7 @@ import {
 } from "tauri-plugin-macos-permissions-api";
 import "./App.css";
 import SecureInputWarning from "./components/SecureInputWarning";
-import Footer from "./components/footer";
+import { HomePage } from "./components/settings/pages/HomePage";
 import { OnboardingFlow } from "./components/onboarding/OnboardingFlow";
 import ModelMigration from "./components/onboarding/ModelMigration";
 import {
@@ -52,9 +52,17 @@ const renderSettingsContent = (
   onRunModelMigration: () => void,
   onSectionChange: (section: SidebarSection) => void,
 ) => {
+  if (section === "home") {
+    return (
+      <HomePage
+        onOpenModels={() => onSectionChange("models")}
+        onOpenHistory={() => onSectionChange("history")}
+      />
+    );
+  }
   if (section === "models") {
     return (
-      <ModelsSettings onChangeLanguages={() => onSectionChange("general")} />
+      <ModelsSettings onChangeLanguages={() => onSectionChange("languages")} />
     );
   }
   if (section === "debug") {
@@ -67,9 +75,31 @@ const renderSettingsContent = (
     );
   }
 
-  const ActiveComponent =
-    SECTIONS_CONFIG[section]?.component || SECTIONS_CONFIG.general.component;
-  return <ActiveComponent />;
+  const ActiveComponent = SECTIONS_CONFIG[section]?.component;
+  return ActiveComponent ? <ActiveComponent /> : null;
+};
+
+/** Page title with its icon tile and one-line description. */
+const PageHeader: React.FC<{ section: SidebarSection }> = ({ section }) => {
+  const { t } = useTranslation();
+  const config = SECTIONS_CONFIG[section];
+  if (!config) return null;
+  const Icon = config.icon;
+  return (
+    <header className="flex items-center gap-3.5">
+      <span className="grid size-11 shrink-0 place-items-center rounded-[13px] bg-text text-background shadow-[0_6px_16px_-8px_rgb(0_0_0/0.5)]">
+        <Icon width={22} height={22} />
+      </span>
+      <div className="min-w-0">
+        <h1 className="m-0 truncate text-[22px] font-semibold leading-tight tracking-[-0.025em]">
+          {t(config.labelKey)}
+        </h1>
+        <p className="m-0 truncate text-[13px] text-ink-2">
+          {t(config.subtitleKey)}
+        </p>
+      </div>
+    </header>
+  );
 };
 
 function App() {
@@ -82,8 +112,7 @@ function App() {
   // Set when a returning user's selected model is a retired (ONNX) model that
   // is still on disk: they must update it before the app can transcribe.
   const [migrationModelId, setMigrationModelId] = useState<string | null>(null);
-  const [currentSection, setCurrentSection] =
-    useState<SidebarSection>("general");
+  const [currentSection, setCurrentSection] = useState<SidebarSection>("home");
   const showHistory = useCallback(() => setCurrentSection("history"), []);
   const { settings, updateSetting } = useSettings();
   const direction = getLanguageDirection(i18n.language);
@@ -324,20 +353,20 @@ function App() {
         <ErrorBoundary context="What's New">
           <WhatsNewGate />
         </ErrorBoundary>
-        {/* Main content area that takes remaining space */}
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex flex-1 overflow-hidden">
           <Sidebar
             activeSection={currentSection}
             onSectionChange={setCurrentSection}
+            onShowHistory={showHistory}
           />
-          {/* Scrollable content area */}
-          <div className="flex-1 flex flex-col overflow-hidden">
+          {/* The page sits on a raised sheet beside the sidebar. */}
+          <div className="my-2 me-2 flex flex-1 flex-col overflow-hidden rounded-[18px] border border-line bg-background shadow-[0_1px_3px_rgb(0_0_0/0.06)]">
             <div ref={settingsScrollRef} className="flex-1 overflow-y-auto">
-              {/* Models fills the window: its table scrolls, not the page. */}
               <div
                 key={currentSection}
-                className={`flex flex-col items-center p-5 gap-4 animate-rise motion-reduce:animate-none ${currentSection === "models" ? "h-full" : ""}`}
+                className={`mx-auto flex w-full max-w-[920px] flex-col gap-6 px-6 pt-6 pb-8 animate-rise motion-reduce:animate-none ${currentSection === "models" ? "h-full" : ""}`}
               >
+                <PageHeader section={currentSection} />
                 <SecureInputWarning />
                 {renderSettingsContent(
                   currentSection,
@@ -350,8 +379,6 @@ function App() {
             </div>
           </div>
         </div>
-        {/* Fixed footer at bottom */}
-        <Footer onShowHistory={showHistory} />
         <FileDropOverlay onDropped={showHistory} />
       </div>
     );

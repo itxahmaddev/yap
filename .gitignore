@@ -48,3 +48,6 @@ __pycache__/
 
 # Original logo sources (processed copies live in branding/)
 NEWLOGO/
+
+# Local design preview (not part of the app)
+preview.html

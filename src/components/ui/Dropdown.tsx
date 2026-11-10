@@ -53,9 +53,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // The trigger's hover; in the menu, hover is grey so it never looks chosen.
-  const hover = tone === "neutral" ? "hover:bg-wash" : "hover:bg-text/5";
-  const chosen = tone === "neutral" ? "bg-line" : "bg-logo-primary/15";
+  // In the menu, hover is grey so it never looks chosen.
+  const chosen = tone === "neutral" ? "bg-line" : "bg-text/[0.08]";
 
   const selectedOption = options.find(
     (option) => option.value === selectedValue,
@@ -89,10 +88,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         ref={triggerRef}
-        className={`px-3 py-1.5 text-sm font-medium bg-surface border border-line-strong/60 rounded-lg min-w-[200px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-all duration-150 ${
+        className={`h-9 px-3 text-[13px] font-medium bg-text/[0.06] border border-transparent rounded-[10px] min-w-[180px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-[background-color,border-color,box-shadow] duration-150 aria-expanded:bg-surface aria-expanded:border-text/40 aria-expanded:ring-4 aria-expanded:ring-text/[0.06] ${
           disabled
             ? "opacity-50 cursor-not-allowed"
-            : `${hover} cursor-pointer ${tone === "neutral" ? "hover:border-text/60" : "hover:border-text/60"}`
+            : `hover:bg-text/[0.1] cursor-pointer`
         }`}
         onClick={handleToggle}
         disabled={disabled}
@@ -100,22 +99,23 @@ export const Dropdown: React.FC<DropdownProps> = ({
       >
         <span className="truncate">{selectedOption?.label || placeholder}</span>
         <svg
-          className={`w-4 h-4 transition-transform duration-200 ${isOpen ? "transform rotate-180" : ""}`}
+          className="w-4 h-4 text-ink-2"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M19 9l-7 7-7-7"
+            d="M8 9.5l4-4 4 4M8 14.5l4 4 4-4"
           />
         </svg>
       </button>
       {isOpen && !disabled && (
         <div
-          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-xl shadow-pop z-50 animate-drop max-h-60 overflow-y-auto p-1 ${
+          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-[12px] shadow-pop z-50 animate-drop max-h-64 overflow-y-auto p-1.5 ${
             menuClassName ?? "left-0 right-0"
           }`}
         >
@@ -130,7 +130,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 <button
                   key={option.value}
                   type="button"
-                  className={`flex w-full items-center gap-2 rounded-lg px-2.5 text-sm text-start transition-colors duration-150 ${
+                  className={`flex w-full items-center gap-2 rounded-[8px] px-2.5 text-[13px] text-start transition-colors duration-150 ${
                     option.description ? "py-2" : "py-1.5"
                   } ${isChosen ? chosen : "hover:bg-wash"} ${
                     option.disabled ? "opacity-50 cursor-not-allowed" : ""

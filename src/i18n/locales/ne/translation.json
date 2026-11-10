@@ -19,7 +19,19 @@
     "postProcessing": "पोस्ट प्रोसेस",
     "history": "हिस्ट्री",
     "debug": "डिबग",
-    "about": "बारेमा"
+    "about": "बारेमा",
+    "home": "Home",
+    "dictation": "Dictation",
+    "audio": "Audio",
+    "languages": "Languages",
+    "output": "Output",
+    "appearance": "Appearance",
+    "system": "System",
+    "groups": {
+      "workspace": "Workspace",
+      "preferences": "Preferences",
+      "app": "App"
+    }
   },
   "onboarding": {
     "customModelDescription": "आधिकारिक रूपमा समर्थित छैन",
@@ -983,5 +995,67 @@
     "learnMore": "यसलाई कसरी ठिक गर्ने",
     "recorderBlocked": "अहिले सर्टकट रेकर्ड गर्न सकिँदैन — macOS Secure Input ले कुञ्जी इभेन्टहरू रोकिरहेको छ। पहिले Secure Input चेतावनी समाधान गर्नुहोस्।",
     "dismiss": "हटाउनुहोस्"
+  },
+  "pages": {
+    "home": {
+      "subtitle": "Your dictation at a glance.",
+      "readyTitle": "Ready when you are",
+      "readyBody": "Press your shortcut and start talking. Yap types what you say into the app you're using.",
+      "shortcut": "Shortcut",
+      "model": "Model",
+      "noModel": "No model selected",
+      "manageModels": "Manage models",
+      "openHistory": "Open history",
+      "quickSettings": "Quick settings",
+      "onDevice": "Runs on this device"
+    },
+    "dictation": {
+      "subtitle": "Shortcuts and how Yap turns speech into text."
+    },
+    "audio": {
+      "subtitle": "Microphone, feedback sounds and volume."
+    },
+    "languages": {
+      "subtitle": "The languages you speak and how they're written."
+    },
+    "output": {
+      "subtitle": "How your words get into other apps."
+    },
+    "models": {
+      "subtitle": "Speech models that run on this computer."
+    },
+    "history": {
+      "subtitle": "Everything you've dictated, kept on this device."
+    },
+    "appearance": {
+      "subtitle": "Theme, menu language and the recording dock."
+    },
+    "system": {
+      "subtitle": "Startup, updates and where Yap keeps its files."
+    },
+    "about": {
+      "subtitle": "Version, source code and credits."
+    },
+    "postProcessing": {
+      "subtitle": "Clean up transcripts with a language model."
+    },
+    "debug": {
+      "subtitle": "Tools for testing and troubleshooting."
+    },
+    "groups": {
+      "shortcut": "Shortcut",
+      "transcription": "Transcription",
+      "microphone": "Microphone",
+      "feedback": "Feedback sounds",
+      "spoken": "Spoken languages",
+      "pasting": "Pasting",
+      "look": "Look and feel",
+      "dock": "Recording dock",
+      "behavior": "Behavior",
+      "updates": "Updates",
+      "storage": "Files and storage",
+      "history": "History",
+      "project": "Project"
+    }
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { InfoTooltip } from "./InfoTooltip";
+import { useSettingTile } from "./SettingsGroup";
 
 interface SettingContainerProps {
   title: string;
@@ -25,6 +26,42 @@ export const SettingContainer: React.FC<SettingContainerProps> = ({
   tooltipPosition = "top",
   grow = false,
 }) => {
+  const tile = useSettingTile();
+
+  // Grid tile: title and description on top, the control anchored below.
+  // Wide content (stacked editors, controls that fill the row) spans the grid.
+  if (tile) {
+    const wide = layout === "stacked" || grow;
+    return (
+      <div
+        className={`group/tile flex min-h-[124px] flex-col gap-3 rounded-[16px] border border-line bg-surface p-4 transition-[border-color,box-shadow] duration-200 hover:border-text/20 hover:shadow-[0_6px_20px_-12px_rgb(0_0_0/0.25)] ${
+          wide ? "col-span-full" : ""
+        }`}
+      >
+        <div className={`min-w-0 ${disabled ? "opacity-50" : ""}`}>
+          <h3 className="text-[13.5px] font-semibold leading-snug tracking-tight text-text">
+            {title}
+          </h3>
+          {description && (
+            <p
+              className="mt-1 line-clamp-3 text-[12px] leading-[1.45] text-ink-3"
+              title={description}
+            >
+              {description}
+            </p>
+          )}
+        </div>
+        <div
+          className={`relative mt-auto flex w-full min-w-0 items-center gap-2 ${
+            wide ? "" : "justify-end"
+          }`}
+        >
+          {wide ? <div className="w-full min-w-0">{children}</div> : children}
+        </div>
+      </div>
+    );
+  }
+
   const info = (
     <InfoTooltip
       text={description}
