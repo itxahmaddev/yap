@@ -1,6 +1,12 @@
 name: "Release"
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      make-latest:
+        description: "Publish the release and mark it as latest once every build succeeds"
+        type: boolean
+        default: false
 
 jobs:
   create-release:
@@ -81,3 +87,23 @@ jobs:
       # stale cached native lib can never be linked into a shipped artifact.
       no-cache: true
     secrets: inherit
+
+  publish-latest:
+    if: ${{ inputs.make-latest }}
+    permissions:
+      contents: write
+    needs: [create-release, publish-tauri]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish release and mark as latest
+        uses: actions/github-script@v9
+        with:
+          script: |
+            await github.rest.repos.updateRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: ${{ needs.create-release.outputs.release-id }},
+              draft: false,
+              prerelease: false,
+              make_latest: "true"
+            })

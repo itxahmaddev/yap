@@ -6,6 +6,24 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.3.0]
+
+### Changed
+
+- Rebuilt the interface in the Devigner style: cool near-black and paper
+  themes, Geist and Geist Mono type, one blue accent, and a dot-grid stage with
+  a breadcrumb pill.
+- Every icon now comes from Devigner Icons, with filled (Bulk) drawings for the
+  active page.
+- New sidebar: settings search (press `/`), mono group labels with counts, and
+  a highlight that glides between pages.
+- Settings are grouped into panels of rows, each with its label, hint and
+  control on one line.
+- New controls from Devigner UI: liquid "goo" switches and sliding-pill tabs
+  for the theme; pill buttons, hairline fields and mono keycaps.
+- New Home hero with crosshair grid, terminal-style shortcut and a framed
+  waveform; restyled history, model list, onboarding rail and recording dock.
+
 ## [0.2.0]
 
 ### Changed
