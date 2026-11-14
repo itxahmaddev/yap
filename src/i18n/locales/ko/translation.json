@@ -914,6 +914,7 @@
     "checkingUpdates": "업데이트 확인 중...",
     "updateAvailableShort": "업데이트 사용 가능",
     "upToDate": "최신 상태",
+    "updateCheckFailed": "업데이트 확인 실패",
     "updateCheckingDisabled": "업데이트 확인 비활성화됨",
     "downloading": "다운로드 중... {{progress}}%",
     "installing": "설치 중...",

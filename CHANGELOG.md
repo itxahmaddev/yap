@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.5.0]
+
+### Fixed
+
+- "Check for updates" now works. Releases publish a signed `latest.json` and
+  update bundles under a new signing key, and the footer says when a check
+  fails instead of doing nothing. Installs of 0.4.0 and earlier carry the old
+  key and cannot update to this build: install 0.5.0 manually once.
+
 ## [0.4.0]
 
 ### Fixed

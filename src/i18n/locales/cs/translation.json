@@ -914,6 +914,7 @@
     "checkingUpdates": "Kontroluji aktualizace...",
     "updateAvailableShort": "Dostupná aktualizace",
     "upToDate": "Vše aktuální",
+    "updateCheckFailed": "Kontrola aktualizací selhala",
     "updateCheckingDisabled": "Kontrola aktualizací vypnuta",
     "downloading": "Stahování... {{progress}}%",
     "installing": "Instalace...",

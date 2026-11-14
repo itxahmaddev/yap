@@ -914,6 +914,7 @@
     "checkingUpdates": "Проверяем наличие обновлений...",
     "updateAvailableShort": "Доступно обновление",
     "upToDate": "Не требует обновлений",
+    "updateCheckFailed": "Не удалось проверить обновления",
     "updateCheckingDisabled": "Проверка обновлений отключена",
     "downloading": "Загрузка... {{progress}} %",
     "installing": "Установка...",

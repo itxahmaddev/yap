@@ -914,6 +914,7 @@
     "checkingUpdates": "בודק עדכונים...",
     "updateAvailableShort": "יש עדכון זמין",
     "upToDate": "מעודכן",
+    "updateCheckFailed": "בדיקת העדכונים נכשלה",
     "updateCheckingDisabled": "בדיקת העדכונים כבויה",
     "downloading": "מוריד... {{progress}}%",
     "installing": "מתקין...",

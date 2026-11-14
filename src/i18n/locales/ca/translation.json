@@ -914,6 +914,7 @@
     "checkingUpdates": "S'està comprovant si hi ha actualitzacions...",
     "updateAvailableShort": "Hi ha una actualització disponible",
     "upToDate": "Actualitzat",
+    "updateCheckFailed": "Ha fallat la cerca d’actualitzacions",
     "updateCheckingDisabled": "Comprovació d'actualitzacions desactivada",
     "downloading": "S'està baixant... {{progress}}%",
     "installing": "S'està instal·lant...",

@@ -914,6 +914,7 @@
     "checkingUpdates": "अपडेट जांचे जा रहे हैं...",
     "updateAvailableShort": "अपडेट उपलब्ध है",
     "upToDate": "अप-टू-डेट",
+    "updateCheckFailed": "अपडेट जाँच विफल रही",
     "updateCheckingDisabled": "अपडेट जांच बंद है",
     "downloading": "डाउनलोड हो रहा है... {{progress}}%",
     "installing": "इंस्टॉल हो रहा है...",

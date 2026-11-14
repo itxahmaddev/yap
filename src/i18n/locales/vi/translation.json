@@ -914,6 +914,7 @@
     "checkingUpdates": "Đang kiểm tra cập nhật...",
     "updateAvailableShort": "Có bản cập nhật",
     "upToDate": "Đã cập nhật",
+    "updateCheckFailed": "Kiểm tra cập nhật thất bại",
     "updateCheckingDisabled": "Đã tắt kiểm tra cập nhật",
     "downloading": "Đang tải... {{progress}}%",
     "installing": "Đang cài đặt...",

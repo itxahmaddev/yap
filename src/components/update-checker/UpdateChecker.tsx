@@ -25,6 +25,7 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
   const [isInstalling, setIsInstalling] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [showUpToDate, setShowUpToDate] = useState(false);
+  const [checkFailed, setCheckFailed] = useState(false);
   const [showPortableUpdateDialog, setShowPortableUpdateDialog] =
     useState(false);
   const [portableInstallerUrl, setPortableInstallerUrl] = useState<string>(
@@ -82,6 +83,7 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
 
     try {
       setIsChecking(true);
+      setCheckFailed(false);
       const update = await check();
 
       if (update) {
@@ -107,6 +109,16 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
       }
     } catch (error) {
       console.error("Failed to check for updates:", error);
+      // Only say so for a click; the silent check at launch stays quiet.
+      if (isManualCheckRef.current) {
+        setCheckFailed(true);
+        if (upToDateTimeoutRef.current) {
+          clearTimeout(upToDateTimeoutRef.current);
+        }
+        upToDateTimeoutRef.current = setTimeout(() => {
+          setCheckFailed(false);
+        }, 5000);
+      }
     } finally {
       setIsChecking(false);
       isManualCheckRef.current = false;
@@ -185,6 +197,7 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
           : t("footer.preparing");
     }
     if (isChecking) return t("footer.checkingUpdates");
+    if (checkFailed) return t("footer.updateCheckFailed");
     if (showUpToDate) return t("footer.upToDate");
     if (updateAvailable) return t("footer.updateAvailableShort");
     return t("footer.checkForUpdates");

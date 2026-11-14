@@ -914,6 +914,7 @@
     "checkingUpdates": "Перевірка оновлень...",
     "updateAvailableShort": "Доступне оновлення",
     "upToDate": "Актуальна версія",
+    "updateCheckFailed": "Не вдалося перевірити оновлення",
     "updateCheckingDisabled": "Перевірка оновлень вимкнена",
     "downloading": "Завантаження... {{progress}}%",
     "installing": "Встановлення...",

@@ -914,6 +914,7 @@
     "checkingUpdates": "Memeriksa pembaruan...",
     "updateAvailableShort": "Pembaruan tersedia",
     "upToDate": "Sudah versi terbaru",
+    "updateCheckFailed": "Gagal memeriksa pembaruan",
     "updateCheckingDisabled": "Pemeriksaan Pembaruan Dinonaktifkan",
     "downloading": "Mengunduh... {{progress}}%",
     "installing": "Menginstal...",

@@ -914,6 +914,7 @@
     "checkingUpdates": "अपडेटहरू जाँच गरिँदैछ...",
     "updateAvailableShort": "अपडेट उपलब्ध छ",
     "upToDate": "अद्यावधिक छ",
+    "updateCheckFailed": "अपडेट जाँच असफल भयो",
     "updateCheckingDisabled": "अपडेट जाँच अफ छ",
     "downloading": "डाउनलोड गरिँदैछ... {{progress}}%",
     "installing": "इन्स्टल गरिँदैछ...",

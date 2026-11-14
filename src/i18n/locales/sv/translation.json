@@ -914,6 +914,7 @@
     "checkingUpdates": "Söker efter uppdateringar...",
     "updateAvailableShort": "Uppdatering tillgänglig",
     "upToDate": "Uppdaterad",
+    "updateCheckFailed": "Det gick inte att söka efter uppdateringar",
     "updateCheckingDisabled": "Uppdateringskontroll inaktiverad",
     "downloading": "Laddar ner... {{progress}}%",
     "installing": "Installerar...",

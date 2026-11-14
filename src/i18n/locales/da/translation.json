@@ -914,6 +914,7 @@
     "checkingUpdates": "Tjekker for opdateringer...",
     "updateAvailableShort": "Opdatering tilgængelig",
     "upToDate": "Opdateret",
+    "updateCheckFailed": "Kontrol af opdateringer mislykkedes",
     "updateCheckingDisabled": "Tjek for opdateringer deaktiveret",
     "downloading": "Downloader... {{progress}}%",
     "installing": "Installerer...",

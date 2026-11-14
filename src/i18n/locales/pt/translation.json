@@ -914,6 +914,7 @@
     "checkingUpdates": "Verificando atualizações...",
     "updateAvailableShort": "Atualização disponível",
     "upToDate": "Atualizado",
+    "updateCheckFailed": "Falha ao verificar atualizações",
     "updateCheckingDisabled": "Verificação de Atualização Desabilitada",
     "downloading": "Baixando... {{progress}}%",
     "installing": "Instalando...",

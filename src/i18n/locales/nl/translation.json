@@ -914,6 +914,7 @@
     "checkingUpdates": "Controleren op updates...",
     "updateAvailableShort": "Update beschikbaar",
     "upToDate": "Up-to-date",
+    "updateCheckFailed": "Controleren op updates mislukt",
     "updateCheckingDisabled": "Updatecontrole uitgeschakeld",
     "downloading": "Downloaden... {{progress}}%",
     "installing": "Installeren...",
