@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Vyberte preferované zařízení mikrofonu",
         "placeholder": "Vyberte mikrofon...",
-        "loading": "Načítání..."
+        "loading": "Načítání...",
+        "notConnected": "Nepřipojeno. Yap používá výchozí mikrofon."
       },
       "channel": {
         "title": "Vstupní kanál",

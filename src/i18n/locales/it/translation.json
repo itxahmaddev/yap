@@ -456,7 +456,8 @@
         "title": "Microfono",
         "description": "Scegli il microfono preferito",
         "placeholder": "Scegli microfono...",
-        "loading": "Caricamento..."
+        "loading": "Caricamento...",
+        "notConnected": "Non collegato. Yap usa il microfono predefinito."
       },
       "channel": {
         "title": "Canale di ingresso",

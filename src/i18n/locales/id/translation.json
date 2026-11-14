@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Pilih perangkat mikrofon yang Anda inginkan",
         "placeholder": "Pilih mikrofon...",
-        "loading": "Memuat..."
+        "loading": "Memuat...",
+        "notConnected": "Tidak terhubung. Yap memakai mikrofon bawaan."
       },
       "channel": {
         "title": "Kanal Masukan",

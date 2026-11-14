@@ -456,7 +456,8 @@
         "title": "Microphone",
         "description": "Select your preferred microphone device",
         "placeholder": "Select microphone...",
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "notConnected": "Not connected. Yap uses the default microphone."
       },
       "channel": {
         "title": "Input Channel",

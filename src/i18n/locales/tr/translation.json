@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Tercih ettiğiniz mikrofon cihazını seçin",
         "placeholder": "Mikrofon seçin...",
-        "loading": "Yükleniyor..."
+        "loading": "Yükleniyor...",
+        "notConnected": "Bağlı değil. Yap varsayılan mikrofonu kullanır."
       },
       "channel": {
         "title": "Giriş Kanalı",

@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Wybierz preferowane urządzenie mikrofonowe",
         "placeholder": "Wybierz mikrofon...",
-        "loading": "Wczytywanie..."
+        "loading": "Wczytywanie...",
+        "notConnected": "Nie podłączono. Yap używa domyślnego mikrofonu."
       },
       "channel": {
         "title": "Kanał wejściowy",

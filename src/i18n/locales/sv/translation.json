@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Välj din föredragna mikrofonenhet",
         "placeholder": "Välj mikrofon...",
-        "loading": "Laddar..."
+        "loading": "Laddar...",
+        "notConnected": "Inte ansluten. Yap använder standardmikrofonen."
       },
       "channel": {
         "title": "Ingångskanal",

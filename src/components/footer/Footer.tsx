@@ -33,15 +33,15 @@ const Footer: React.FC<FooterProps> = ({ onShowHistory }) => {
         <ModelSelector />
         <NoticeChip />
       </div>
-      <div className="flex min-w-0 items-center justify-between gap-2 border-t border-border px-3 py-2">
+      <div className="border-t border-border px-3 py-2 empty:hidden">
         <TranscriptionStatus onShowHistory={onShowHistory} />
+      </div>
+      <div className="flex min-w-0 items-center justify-between gap-2 border-t border-border px-3 py-2">
+        <UpdateChecker className="min-w-0 font-mono text-[10.5px]" />
         {/* eslint-disable-next-line i18next/no-literal-string */}
-        <span className="shrink-0 rounded-[5px] border border-border bg-muted px-1 py-px font-mono text-[10px] leading-none text-muted-foreground">
+        <span className="ms-auto shrink-0 rounded-[5px] border border-border bg-muted px-1 py-0.5 font-mono text-[10px] leading-none text-muted-foreground">
           v{version}
         </span>
-      </div>
-      <div className="border-t border-border px-3 py-2 empty:hidden">
-        <UpdateChecker className="min-w-0 font-mono text-[10.5px]" />
       </div>
     </div>
   );

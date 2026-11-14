@@ -199,15 +199,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
     <nav className="flex h-full w-[220px] shrink-0 flex-col ps-3 pe-2 pt-4 pb-3">
       {/* Wordmark with a blue full stop and a boxed tag, like "devigner. UI" */}
       <div className="mb-4 flex items-center gap-2 px-1.5">
-        <span className="grid size-7 place-items-center rounded-lg bg-foreground text-background">
-          <YapWave height={12} />
+        <span className="grid size-7 shrink-0 place-items-center overflow-hidden rounded-lg bg-foreground text-background">
+          <YapWave height={14} />
         </span>
         {/* eslint-disable-next-line i18next/no-literal-string */}
-        <span className="text-[17px] font-semibold tracking-[-0.04em]">
+        <span className="text-[17px] font-semibold leading-none tracking-[-0.04em]">
           yap<span className="text-primary">.</span>
         </span>
-        {}
-        <span className="rounded-[5px] border border-border bg-muted px-1 py-px font-mono text-[9.5px] font-medium leading-none text-muted-foreground">
+        <span className="rounded-[5px] border border-border bg-muted px-1 py-[3px] font-mono text-[9.5px] font-medium leading-none text-muted-foreground">
           STT
         </span>
       </div>

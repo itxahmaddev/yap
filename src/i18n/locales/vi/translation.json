@@ -456,7 +456,8 @@
         "title": "Micrô",
         "description": "Chọn thiết bị micrô ưa thích của bạn",
         "placeholder": "Chọn micrô...",
-        "loading": "Đang tải..."
+        "loading": "Đang tải...",
+        "notConnected": "Chưa kết nối. Yap dùng micrô mặc định."
       },
       "channel": {
         "title": "Kênh đầu vào",

@@ -115,14 +115,14 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
             {keys.length > 0 && (
               // The shortcut as a terminal pill, like "$ npx devignerui init"
-              <div className="inline-flex h-10 w-fit items-center gap-2 rounded-full border border-border bg-background/80 ps-4 pe-1.5 font-mono text-[12px] text-muted-foreground backdrop-blur">
+              <div className="inline-flex h-10 w-fit max-w-full items-center gap-2 whitespace-nowrap rounded-full border border-border bg-background/80 ps-4 pe-1.5 font-mono text-[12px] text-muted-foreground backdrop-blur">
                 <span className="text-primary">$</span>
                 <span className="lowercase">{t("pages.home.shortcut")}</span>
-                <span className="flex items-center gap-1">
+                <span className="flex shrink-0 items-center gap-1">
                   {keys.map((key, index) => (
                     <kbd
                       key={`${key}-${index}`}
-                      className="inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-input bg-muted px-2.5 font-mono text-[11.5px] font-medium text-foreground shadow-[inset_0_-1.5px_0_var(--color-line-strong)]"
+                      className="inline-flex h-7 min-w-7 shrink-0 items-center justify-center whitespace-nowrap rounded-full border border-input bg-muted px-2.5 font-mono text-[11.5px] font-medium text-foreground shadow-[inset_0_-1.5px_0_var(--color-line-strong)]"
                     >
                       {key}
                     </kbd>

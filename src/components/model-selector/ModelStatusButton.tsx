@@ -1,4 +1,5 @@
 import React from "react";
+import { ChevronDown } from "@/components/icons/devigner";
 
 type ModelStatus =
   | "ready"
@@ -52,25 +53,20 @@ const ModelStatusButton: React.FC<ModelStatusButtonProps> = ({
 
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`flex items-center gap-2 hover:text-text transition-colors ${className}`}
-      title={`Model status: ${displayText}`}
+      aria-expanded={isDropdownOpen}
+      className={`flex min-w-0 max-w-full cursor-pointer items-center gap-2 rounded-sm transition-colors hover:text-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${className}`}
+      title={displayText}
     >
-      <div className={`w-2 h-2 rounded-full ${getStatusColor(status)}`} />
-      <span className="max-w-28 truncate">{displayText}</span>
-      <svg
-        className={`w-3 h-3 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
+      <span
+        className={`size-2 shrink-0 rounded-full ${getStatusColor(status)}`}
+      />
+      <span className="min-w-0 truncate">{displayText}</span>
+      <ChevronDown
+        size={12}
+        className={`shrink-0 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`}
+      />
     </button>
   );
 };

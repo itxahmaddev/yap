@@ -456,7 +456,8 @@
         "title": "Microfoon",
         "description": "Selecteer de gewenste microfoon",
         "placeholder": "Microfoon selecteren...",
-        "loading": "Laden..."
+        "loading": "Laden...",
+        "notConnected": "Niet verbonden. Yap gebruikt de standaardmicrofoon."
       },
       "channel": {
         "title": "Ingangskanaal",

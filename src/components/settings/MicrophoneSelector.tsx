@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Dropdown } from "../ui/Dropdown";
+import { Dropdown, type DropdownOption } from "../ui/Dropdown";
 import { SettingContainer } from "../ui/SettingContainer";
 import { ResetButton } from "../ui/ResetButton";
 import { useSettings } from "../../hooks/useSettings";
@@ -37,10 +37,25 @@ export const MicrophoneDropdown: React.FC<{
     onPicked?.();
   };
 
-  const microphoneOptions = audioDevices.map((device) => ({
+  const microphoneOptions: DropdownOption[] = audioDevices.map((device) => ({
     value: device.name,
     label: device.name,
   }));
+
+  // A saved microphone that isn't plugged in is still the choice: list it,
+  // greyed, so the button names it instead of falling back to the placeholder.
+  if (
+    !isLoading &&
+    audioDevices.length > 0 &&
+    !audioDevices.some((device) => device.name === selectedMicrophone)
+  ) {
+    microphoneOptions.push({
+      value: selectedMicrophone,
+      label: selectedMicrophone,
+      description: t("settings.sound.microphone.notConnected"),
+      disabled: true,
+    });
+  }
 
   return (
     <Dropdown

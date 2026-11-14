@@ -456,7 +456,8 @@
         "title": "Microphone",
         "description": "Sélectionnez votre périphérique d'entrée audio",
         "placeholder": "Sélectionner un microphone...",
-        "loading": "Chargement..."
+        "loading": "Chargement...",
+        "notConnected": "Non connecté. Yap utilise le micro par défaut."
       },
       "channel": {
         "title": "Canal d’entrée",

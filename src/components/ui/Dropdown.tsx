@@ -107,7 +107,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
       {isOpen && !disabled && (
         <div
           className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-popover border border-border rounded-xl shadow-pop z-50 animate-drop max-h-64 overflow-y-auto p-1 ${
-            menuClassName ?? "left-0 right-0"
+            menuClassName ??
+            "right-0 w-max min-w-full max-w-[min(22rem,calc(100vw-2rem))]"
           }`}
         >
           {options.length === 0 ? (

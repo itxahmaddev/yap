@@ -456,7 +456,8 @@
         "title": "Mikrofon",
         "description": "Vælg din foretrukne mikrofonenhed",
         "placeholder": "Vælg mikrofon...",
-        "loading": "Indlæser..."
+        "loading": "Indlæser...",
+        "notConnected": "Ikke tilsluttet. Yap bruger standardmikrofonen."
       },
       "channel": {
         "title": "Inputkanal",

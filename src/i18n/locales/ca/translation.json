@@ -456,7 +456,8 @@
         "title": "Micròfon",
         "description": "Selecciona el micròfon preferit",
         "placeholder": "Seleccionaun micròfon...",
-        "loading": "S'està carregant..."
+        "loading": "S'està carregant...",
+        "notConnected": "No connectat. Yap fa servir el micròfon predeterminat."
       },
       "channel": {
         "title": "Canal d'entrada",

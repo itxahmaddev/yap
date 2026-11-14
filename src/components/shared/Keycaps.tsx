@@ -59,7 +59,7 @@ export const Keycaps: React.FC<KeycapsProps> = ({
         <span
           key={i}
           aria-hidden="true"
-          className={`relative inline-flex items-center justify-center border font-mono font-medium leading-none select-none transition-[transform,box-shadow,background-color,border-color] duration-100 ease-out ${SIZES[size]} ${state}`}
+          className={`relative inline-flex shrink-0 items-center justify-center whitespace-nowrap border font-mono font-medium leading-none select-none transition-[transform,box-shadow,background-color,border-color] duration-100 ease-out ${SIZES[size]} ${state}`}
         >
           {label}
         </span>

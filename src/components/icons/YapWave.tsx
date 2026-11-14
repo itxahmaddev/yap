@@ -15,12 +15,14 @@ const YapWave = ({
   animated?: boolean;
   className?: string;
 }) => {
-  const bar = Math.max(3, Math.round(height / 7));
+  // Small marks get 2px bars: a 3px floor makes a 12px mark 33px wide.
+  const bar = Math.max(2, Math.round(height / 7));
+  const gap = Math.max(1, Math.round(bar * 0.6));
   return (
     <span
       aria-hidden="true"
       className={`inline-flex items-center ${className}`}
-      style={{ height, gap: Math.round(bar * 0.6) }}
+      style={{ height, gap }}
     >
       {HEIGHTS.map((h, i) => (
         <span
