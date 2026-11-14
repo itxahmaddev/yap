@@ -6,6 +6,18 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.4.0]
+
+### Fixed
+
+- The microphone picker no longer falls back to "Select microphone..." when
+  the saved microphone is unplugged. It lists that device as not connected.
+- Dropdown menus widen to fit long device names instead of wrapping them.
+- The footer shows the full model name, with the version beside "Check for
+  updates".
+- The sidebar logo mark fits its tile again.
+- Multi-word keys such as "Left Super" stay on one line in the shortcut.
+
 ## [0.3.0]
 
 ### Changed
