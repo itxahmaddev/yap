@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Cari pengaturan",
+    "noResults": "Tidak ada halaman yang cocok"
   },
   "onboarding": {
     "customModelDescription": "Tidak didukung secara resmi",

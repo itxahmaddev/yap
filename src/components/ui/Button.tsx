@@ -13,6 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "md" | "lg";
 }
 
+/** Devigner-style pill button: blue primary, hairline secondaries. */
 export const Button: React.FC<ButtonProps> = ({
   children,
   className = "",
@@ -21,35 +22,32 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "inline-flex items-center justify-center gap-1.5 font-medium rounded-[10px] border focus:outline-none transition-[background-color,border-color,color,box-shadow,transform] duration-150 ease-glide active:translate-y-px motion-reduce:active:translate-y-0 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer select-none whitespace-nowrap";
+    "inline-flex items-center justify-center gap-1.5 rounded-full border font-medium whitespace-nowrap select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background transition-[background-color,border-color,color,box-shadow,scale] duration-200 ease-glide active:scale-[0.97] motion-reduce:active:scale-100 disabled:cursor-not-allowed disabled:opacity-45 [&_svg]:shrink-0";
 
   const variantClasses = {
-    // Solid ink with a soft top highlight
+    // Solid blue pill with a lit top edge, as on ui.devigner.cc
     primary:
-      "text-on-accent bg-background-ui border-background-ui shadow-[inset_0_1px_0_rgb(255_255_255/0.14),0_1px_2px_rgb(0_0_0/0.2)] hover:bg-background-ui/88 focus-visible:ring-4 focus-visible:ring-text/15",
+      "border-transparent bg-primary text-primary-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_1px_2px_rgb(0_0_0/0.2),0_6px_16px_-8px_var(--color-primary)] hover:bg-primary/90",
     "primary-soft":
-      "text-text bg-text/[0.08] border-transparent hover:bg-text/[0.12] focus-visible:ring-4 focus-visible:ring-text/10",
-    // Filled, borderless
+      "border-primary/25 bg-primary/12 text-primary hover:bg-primary/18",
     secondary:
-      "text-text bg-text/[0.06] border-transparent hover:bg-text/[0.1] focus-visible:ring-4 focus-visible:ring-text/10",
-    // For screens where a fill reads as disabled (onboarding)
+      "border-border bg-muted text-foreground hover:bg-accent hover:border-input",
     outline:
-      "text-text bg-transparent border-text/25 hover:border-text/60 hover:bg-text/[0.04] focus-visible:ring-4 focus-visible:ring-text/10",
-    // Neutral resting look; hover/focus use the semantic warning color
+      "border-input bg-transparent text-foreground hover:bg-accent hover:border-foreground/30",
     warning:
-      "text-text bg-text/[0.06] border-transparent hover:bg-warning-wash hover:border-warning focus-visible:ring-2 focus-visible:ring-warning",
+      "border-border bg-muted text-foreground hover:border-warning hover:bg-warning-wash hover:text-warning",
     danger:
-      "text-background bg-error border-error hover:bg-error/85 focus-visible:ring-4 focus-visible:ring-error/25",
+      "border-transparent bg-error text-white hover:bg-error/90 shadow-[inset_0_1px_0_rgb(255_255_255/0.2)]",
     "danger-ghost":
-      "text-error border-transparent hover:bg-error-wash focus:bg-error-wash",
+      "border-transparent text-error hover:bg-error-wash focus-visible:bg-error-wash",
     ghost:
-      "text-current border-transparent hover:bg-text/[0.07] focus-visible:bg-text/[0.07]",
+      "border-transparent text-muted-foreground hover:bg-accent hover:text-foreground",
   };
 
   const sizeClasses = {
-    sm: "h-7 px-2.5 text-xs",
-    md: "h-9 px-3.5 text-[13px]",
-    lg: "h-11 px-5 text-sm",
+    sm: "h-7 px-3 text-[12px] [&_svg]:size-3.5",
+    md: "h-8 px-3.5 text-[13px] [&_svg]:size-4",
+    lg: "h-10 px-5 text-[14px] [&_svg]:size-4",
   };
 
   return (

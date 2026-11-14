@@ -1,7 +1,7 @@
 import React from "react";
 import { Trans } from "react-i18next";
 import { openUrl } from "@tauri-apps/plugin-opener";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink } from "@/components/icons/devigner";
 import { TextLink } from "../ui/TextLink";
 
 const LINUX_SETUP_URL = "https://github.com/itxahmaddev/yap/docs/linux";

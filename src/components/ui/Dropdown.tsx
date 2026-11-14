@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Check, ChevronDown } from "@/components/icons/devigner";
 import { useTranslation } from "react-i18next";
 
 export interface DropdownOption {
@@ -54,7 +55,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   }, []);
 
   // In the menu, hover is grey so it never looks chosen.
-  const chosen = tone === "neutral" ? "bg-line" : "bg-text/[0.08]";
+  const chosen = tone === "neutral" ? "bg-accent" : "bg-accent text-foreground";
 
   const selectedOption = options.find(
     (option) => option.value === selectedValue,
@@ -88,39 +89,29 @@ export const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         ref={triggerRef}
-        className={`h-9 px-3 text-[13px] font-medium bg-text/[0.06] border border-transparent rounded-[10px] min-w-[180px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-[background-color,border-color,box-shadow] duration-150 aria-expanded:bg-surface aria-expanded:border-text/40 aria-expanded:ring-4 aria-expanded:ring-text/[0.06] ${
+        className={`h-8 px-3 text-[13px] font-medium bg-muted/60 border border-border rounded-lg min-w-[180px] w-full text-start grid grid-cols-[1fr_auto] gap-2 items-center transition-[background-color,border-color,box-shadow] duration-200 ease-glide focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 aria-expanded:bg-background aria-expanded:border-ring/60 aria-expanded:ring-[3px] aria-expanded:ring-ring/15 ${
           disabled
             ? "opacity-50 cursor-not-allowed"
-            : `hover:bg-text/[0.1] cursor-pointer`
+            : `hover:bg-accent hover:border-input cursor-pointer`
         }`}
         onClick={handleToggle}
         disabled={disabled}
         aria-expanded={isOpen}
       >
         <span className="truncate">{selectedOption?.label || placeholder}</span>
-        <svg
-          className="w-4 h-4 text-ink-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8 9.5l4-4 4 4M8 14.5l4 4 4-4"
-          />
-        </svg>
+        <ChevronDown
+          size={14}
+          className={`text-muted-foreground transition-transform duration-200 ease-glide ${isOpen ? "rotate-180" : ""}`}
+        />
       </button>
       {isOpen && !disabled && (
         <div
-          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-surface border border-line rounded-[12px] shadow-pop z-50 animate-drop max-h-64 overflow-y-auto p-1.5 ${
+          className={`absolute ${placement === "above" ? "bottom-full mb-1" : "top-full mt-1"} bg-popover border border-border rounded-xl shadow-pop z-50 animate-drop max-h-64 overflow-y-auto p-1 ${
             menuClassName ?? "left-0 right-0"
           }`}
         >
           {options.length === 0 ? (
-            <div className="px-2 py-1.5 text-sm text-ink-3">
+            <div className="px-2 py-1.5 text-sm text-muted-foreground">
               {t("common.noOptionsFound")}
             </div>
           ) : (
@@ -130,9 +121,9 @@ export const Dropdown: React.FC<DropdownProps> = ({
                 <button
                   key={option.value}
                   type="button"
-                  className={`flex w-full items-center gap-2 rounded-[8px] px-2.5 text-[13px] text-start transition-colors duration-150 ${
+                  className={`flex w-full cursor-pointer items-center gap-2 rounded-lg px-2.5 text-[13px] text-start transition-colors duration-150 ${
                     option.description ? "py-2" : "py-1.5"
-                  } ${isChosen ? chosen : "hover:bg-wash"} ${
+                  } ${isChosen ? chosen : "text-muted-foreground hover:bg-accent/70 hover:text-foreground"} ${
                     option.disabled ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   onClick={() => handleSelect(option.value)}
@@ -141,32 +132,19 @@ export const Dropdown: React.FC<DropdownProps> = ({
                   <span className="min-w-0 flex-1">
                     <span
                       className={`block whitespace-normal break-words ${
-                        isChosen ? "font-semibold" : ""
+                        isChosen ? "font-medium" : ""
                       }`}
                     >
                       {option.label}
                     </span>
                     {option.description && (
-                      <span className="mt-0.5 block whitespace-normal text-xs font-normal leading-snug text-ink-3">
+                      <span className="mt-0.5 block whitespace-normal text-xs font-normal leading-snug text-muted-foreground">
                         {option.description}
                       </span>
                     )}
                   </span>
                   {isChosen && (
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2.2}
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="shrink-0 text-ink-2"
-                    >
-                      <path d="M5 12.5l4.5 4.5L19 7.5" />
-                    </svg>
+                    <Check size={15} className="shrink-0 text-primary" />
                   )}
                 </button>
               );

@@ -1,4 +1,4 @@
-/* Yap Colors (monochrome: black and white, status colors only for state): every color the app uses comes from here. Pick by job:
+/* Yap Colors (Devigner look: cool near-black and paper, one blue primary; status colors only for state): every color the app uses comes from here. Pick by job:
  * greys (ink-2, ink-3, line-strong, line, wash) for text, edges and fills;
  * logo-primary / background-ui for brand and primary actions; plum for keys
  * and picks (onboarding); moss / warning / error (+ -wash) for status.
@@ -9,22 +9,33 @@
   /* Palette source of truth. Each themed color is defined once as a
      light/dark pair; the active tokens below and the `data-theme` overrides
      in App.css reference these, so a hex value lives in exactly one place. */
-  --light-color-text: #0a0a0a;
-  --light-color-background: #fafafa;
-  --light-color-surface: #ffffff;
-  --light-color-logo-primary: #0a0a0a;
-  --light-color-logo-stroke: #0a0a0a;
+  --light-color-text: #111419;
+  --light-color-background: #f6f7f9;
+  --light-color-surface: #fcfcfe;
+  --light-color-logo-primary: #111419;
+  --light-color-logo-stroke: #111419;
 
-  --dark-color-text: #f5f5f5;
-  --dark-color-background: #0a0a0a;
-  --dark-color-surface: #111111;
-  --dark-color-logo-primary: #f5f5f5;
+  --dark-color-text: #eff0f2;
+  --dark-color-background: #101215;
+  --dark-color-surface: #15171b;
+  --dark-color-logo-primary: #eff0f2;
   /* Text drawn on top of the accent (primary buttons, active items). */
-  --light-color-on-accent: #ffffff;
-  --dark-color-on-accent: #090909;
-  /* Primary action fill; same ink as the accent. */
-  --light-color-background-ui: #0a0a0a;
-  --dark-color-background-ui: #f5f5f5;
+  --light-color-on-accent: #f8fafd;
+  --dark-color-on-accent: #070b14;
+  /* The one blue: primary actions, the active page, picks, focus. */
+  --light-color-primary: #275de5;
+  --dark-color-primary: #5a94ff;
+  /* Quiet fills: muted for wells and fields, hover for the neutral highlight. */
+  --light-color-muted: #e7e9ed;
+  --dark-color-muted: #181b1e;
+  --light-color-hover: #e4e7eb;
+  --dark-color-hover: #1a1c20;
+  /* Behind and around everything: the window chrome the sidebar sits on. */
+  --light-color-canvas: #eceef1;
+  --dark-color-canvas: #0a0c0e;
+  /* Primary action fill; the blue. */
+  --light-color-background-ui: var(--light-color-primary);
+  --dark-color-background-ui: var(--dark-color-primary);
 
   /* Status colors. Each has a -wash tint below. */
   --light-color-warning: #d97706;
@@ -131,8 +142,9 @@
     var(--dark-color-background)
   );
 
-  /* Tokens that do not change between light and dark */
-  --color-mid-gray: #808080;
+  /* Muted grey for hints and icons; tuned per theme for 4.5:1 on surfaces. */
+  --light-color-mid-gray: #66696f;
+  --dark-color-mid-gray: #83868c;
 
   /* Active palette — defaults to light, follows the OS via the media query
      below, or is forced by `data-theme` (see the overrides below). */
@@ -142,6 +154,11 @@
   --color-logo-primary: var(--light-color-logo-primary);
   --color-on-accent: var(--light-color-on-accent);
   --color-background-ui: var(--light-color-background-ui);
+  --color-primary: var(--light-color-primary);
+  --color-canvas: var(--light-color-canvas);
+  --color-muted: var(--light-color-muted);
+  --color-hover: var(--light-color-hover);
+  --color-mid-gray: var(--light-color-mid-gray);
   --color-warning: var(--light-color-warning);
   --color-error: var(--light-color-error);
   --color-moss: var(--light-color-moss);
@@ -162,15 +179,26 @@
   /* Grey steps: secondary text, hints/icons, control edges, dividers, hover fill. */
   --color-ink-2: color-mix(in srgb, var(--color-text) 60%, transparent);
   --color-ink-3: var(--color-mid-gray);
-  --color-line-strong: color-mix(
+  --color-line-strong: color-mix(in srgb, var(--color-text) 18%, transparent);
+  --color-line: color-mix(in srgb, var(--color-text) 9%, transparent);
+  --color-wash: color-mix(in srgb, var(--color-text) 5%, transparent);
+  /* Edge of a picked card or option. */
+  --color-plum-pick: color-mix(in srgb, var(--color-primary) 70%, transparent);
+  /* Accent tints: a soft fill behind accent ink, and its hover step. */
+  --color-primary-soft: color-mix(
     in srgb,
-    var(--color-mid-gray) 80%,
+    var(--color-primary) 12%,
     transparent
   );
-  --color-line: color-mix(in srgb, var(--color-mid-gray) 20%, transparent);
-  --color-wash: color-mix(in srgb, var(--color-mid-gray) 10%, transparent);
-  /* Edge of a picked card or option. */
-  --color-plum-pick: color-mix(in srgb, var(--color-plum) 60%, transparent);
+  --color-primary-soft-hover: color-mix(
+    in srgb,
+    var(--color-primary) 18%,
+    transparent
+  );
+  /* Raised surfaces: a hairline-plus-soft-drop at rest, a lift on hover. */
+  --shadow-rest: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 1px rgb(16 24 40 / 0.02);
+  --shadow-lift:
+    0 12px 28px -14px rgb(16 24 40 / 0.22), 0 2px 6px -2px rgb(16 24 40 / 0.06);
   /* The far end of a capture slot's breathing edge (KeySlot). */
   --color-plum-faint: color-mix(in srgb, var(--color-plum) 22%, transparent);
 }
@@ -183,6 +211,11 @@
     --color-logo-primary: var(--dark-color-logo-primary);
     --color-on-accent: var(--dark-color-on-accent);
     --color-background-ui: var(--dark-color-background-ui);
+    --color-primary: var(--dark-color-primary);
+    --color-canvas: var(--dark-color-canvas);
+    --color-muted: var(--dark-color-muted);
+    --color-hover: var(--dark-color-hover);
+    --color-mid-gray: var(--dark-color-mid-gray);
     --color-warning: var(--dark-color-warning);
     --color-error: var(--dark-color-error);
     --color-moss: var(--dark-color-moss);
@@ -219,6 +252,11 @@
   --color-logo-primary: var(--light-color-logo-primary);
   --color-on-accent: var(--light-color-on-accent);
   --color-background-ui: var(--light-color-background-ui);
+  --color-primary: var(--light-color-primary);
+  --color-canvas: var(--light-color-canvas);
+  --color-muted: var(--light-color-muted);
+  --color-hover: var(--light-color-hover);
+  --color-mid-gray: var(--light-color-mid-gray);
   --color-warning: var(--light-color-warning);
   --color-error: var(--light-color-error);
   --color-moss: var(--light-color-moss);
@@ -244,6 +282,11 @@
   --color-logo-primary: var(--dark-color-logo-primary);
   --color-on-accent: var(--dark-color-on-accent);
   --color-background-ui: var(--dark-color-background-ui);
+  --color-primary: var(--dark-color-primary);
+  --color-canvas: var(--dark-color-canvas);
+  --color-muted: var(--dark-color-muted);
+  --color-hover: var(--dark-color-hover);
+  --color-mid-gray: var(--dark-color-mid-gray);
   --color-warning: var(--dark-color-warning);
   --color-error: var(--dark-color-error);
   --color-moss: var(--dark-color-moss);

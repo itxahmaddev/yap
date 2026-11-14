@@ -2,6 +2,23 @@
    output and made the first dev CSS compile take ~16s. */
 @import "tailwindcss" source(".");
 @import "./styles/theme.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+/* `dark:` follows Yap's theme setting: forced dark, or the OS when unset. */
+@custom-variant dark {
+  &:where([data-theme="dark"], [data-theme="dark"] *) {
+    @slot;
+  }
+  @media (prefers-color-scheme: dark) {
+    &:where(
+      :root:not([data-theme="light"]),
+      :root:not([data-theme="light"]) *
+    ) {
+      @slot;
+    }
+  }
+}
 
 /* Register the shared color tokens (src/styles/theme.css) as Tailwind
    utilities */
@@ -27,6 +44,41 @@
   --color-ink-3: var(--color-ink-3);
   --color-line: var(--color-line);
   --color-line-strong: var(--color-line-strong);
+  --color-primary: var(--color-primary);
+  --color-primary-soft: var(--color-primary-soft);
+  --color-primary-soft-hover: var(--color-primary-soft-hover);
+  --color-canvas: var(--color-canvas);
+  --shadow-rest: var(--shadow-rest);
+  --shadow-lift: var(--shadow-lift);
+  --color-muted: var(--color-muted);
+  --color-hover: var(--color-hover);
+
+  /* Devigner UI's shadcn-style names, so its components theme themselves. */
+  --color-foreground: var(--color-text);
+  --color-card: var(--color-background);
+  --color-card-foreground: var(--color-text);
+  --color-popover: var(--color-surface);
+  --color-popover-foreground: var(--color-text);
+  --color-secondary: var(--color-muted);
+  --color-secondary-foreground: var(--color-text);
+  --color-muted-foreground: var(--color-ink-3);
+  --color-accent: var(--color-hover);
+  --color-accent-foreground: var(--color-text);
+  --color-primary-foreground: var(--color-on-accent);
+  --color-destructive: var(--color-error);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line-strong);
+  --color-ring: var(--color-primary);
+}
+
+/* Raw shadcn variables that Devigner UI components read in inline styles
+   (Goo Switch mixes its track from these). */
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-text);
+  --primary: var(--color-primary);
+  --muted-foreground: var(--color-ink-3);
+  --border: var(--color-line);
 }
 
 /* Noto Sans CJK subset (see src/lib/utils/cjkFont.ts): Windows' CJK fonts
@@ -41,15 +93,21 @@
 /* Onboarding's scale in px (rem steps land on fractions at a 15px root).
    Names avoid Tailwind's defaults, which Settings still uses. */
 @theme {
+  /* Geist and Geist Mono, bundled (no network): the Devigner type. */
+  --font-sans:
+    "Geist Variable", system-ui, -apple-system, "Segoe UI Variable Text",
+    "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  --font-mono:
+    "Geist Mono Variable", ui-monospace, "Cascadia Mono", Consolas, monospace;
   --font-display:
-    system-ui, -apple-system, "Segoe UI Variable Display", "Segoe UI",
-    sans-serif;
+    "Geist Variable", system-ui, -apple-system, "Segoe UI Variable Display",
+    "Segoe UI", sans-serif;
   --font-ui:
-    system-ui, -apple-system, "Segoe UI Variable Text", "Segoe UI", Roboto,
-    "Noto Sans", sans-serif;
+    "Geist Variable", system-ui, -apple-system, "Segoe UI Variable Text",
+    "Segoe UI", Roboto, "Noto Sans", sans-serif;
   --font-cjk-subset:
-    "Yap CJK Subset", -apple-system, "Segoe UI Variable Text", "Segoe UI",
-    system-ui, sans-serif;
+    "Geist Variable", "Yap CJK Subset", -apple-system, "Segoe UI Variable Text",
+    "Segoe UI", system-ui, sans-serif;
 
   --text-title: 26px; /* screen titles */
   --text-name: 15px; /* the model name on Model's Full card */
@@ -75,7 +133,8 @@
 
   /* Soft, layered shadows for raised surfaces */
   --shadow-card: 0 0 #0000; /* flat: cards are drawn with hairlines */
-  --shadow-pop: 0 8px 24px -8px rgb(0 0 0 / 0.18); /* popovers only */
+  --shadow-pop:
+    0 16px 36px -12px rgb(16 24 40 / 0.22), 0 2px 6px rgb(16 24 40 / 0.06); /* popovers */
 
   /* The waveform bars that make up the Yap mark, dancing */
   --animate-bars: bars 1.1s ease-in-out infinite;
@@ -213,12 +272,12 @@
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
+  font-family: var(--font-sans);
 
   /* Typography settings */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  letter-spacing: -0.011em;
-  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -298,19 +357,19 @@
   background-color: var(--scrollbar-thumb-hover);
 }
 
-/* Monochrome polish */
 ::selection {
-  background: var(--color-text);
-  color: var(--color-background);
+  background: color-mix(in srgb, var(--color-primary) 28%, transparent);
+  color: var(--color-text);
 }
 
 :focus-visible {
-  outline: 2px solid color-mix(in srgb, var(--color-text) 55%, transparent);
+  outline: 2px solid color-mix(in srgb, var(--color-primary) 70%, transparent);
   outline-offset: 2px;
 }
 
 /* Everything that changes color eases, so theme switches feel smooth. */
 body {
+  background-color: var(--color-canvas);
   transition:
     background-color 200ms ease,
     color 200ms ease;
@@ -331,6 +390,7 @@ body {
 input[type="range"] {
   height: 6px;
   border-radius: 999px;
+  accent-color: var(--color-primary);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -339,9 +399,9 @@ input[type="range"]::-webkit-slider-thumb {
   height: 20px;
   border-radius: 999px;
   background: var(--color-surface);
-  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
-  box-shadow: 0 2px 6px rgb(0 0 0 / 0.3);
-  transition: transform 150ms var(--ease-spring);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 2px 8px -1px rgb(16 24 40 / 0.3);
+  transition: transform 180ms var(--ease-spring);
 }
 input[type="range"]:hover::-webkit-slider-thumb {
   transform: scale(1.15);

@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Tìm trong cài đặt",
+    "noResults": "Không có trang nào khớp"
   },
   "onboarding": {
     "customModelDescription": "Không được hỗ trợ chính thức",

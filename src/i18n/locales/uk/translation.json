@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Пошук у налаштуваннях",
+    "noResults": "Немає відповідних сторінок"
   },
   "onboarding": {
     "customModelDescription": "Офіційно не підтримується",

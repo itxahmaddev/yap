@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Dropdown } from "../ui/Dropdown";
+import { IconMonitor, IconMoon, IconSun } from "@devigner-ui/icons";
+import { Tabs } from "../ui/devigner/tabs";
 import { SettingContainer } from "../ui/SettingContainer";
 import { useSettings } from "@/hooks/useSettings";
 import { applyTheme, THEME_OPTIONS } from "@/lib/utils/theme";
@@ -18,10 +19,16 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = React.memo(
 
     const currentTheme: Theme = settings?.theme ?? "system";
 
-    const themeOptions = THEME_OPTIONS.map((value) => ({
-      value,
-      label: t(`theme.options.${value}`),
-    }));
+    const ICONS = { system: IconMonitor, light: IconSun, dark: IconMoon };
+    const themeOptions = THEME_OPTIONS.map((value) => {
+      const Icon = ICONS[value];
+      return {
+        value,
+        label: t(`theme.options.${value}`),
+        icon: <Icon variant="Outline" />,
+        activeIcon: <Icon variant="Bulk" />,
+      };
+    });
 
     const handleThemeChange = (value: string) => {
       const theme = value as Theme;
@@ -36,10 +43,13 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = React.memo(
         descriptionMode={descriptionMode}
         grouped={grouped}
       >
-        <Dropdown
+        <Tabs
           options={themeOptions}
-          selectedValue={currentTheme}
-          onSelect={handleThemeChange}
+          value={currentTheme}
+          onValueChange={handleThemeChange}
+          label={t("theme.title")}
+          size="md"
+          classNames={{ indicator: "bg-accent border border-border" }}
         />
       </SettingContainer>
     );

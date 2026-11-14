@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Szukaj w ustawieniach",
+    "noResults": "Brak pasujących stron"
   },
   "onboarding": {
     "customModelDescription": "Nieoficjalnie wspierane",

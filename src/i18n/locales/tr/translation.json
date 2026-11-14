@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Ayarlarda ara",
+    "noResults": "Eşleşen sayfa yok"
   },
   "onboarding": {
     "customModelDescription": "Resmi olarak desteklenmiyor",

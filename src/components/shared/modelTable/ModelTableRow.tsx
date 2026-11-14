@@ -145,13 +145,13 @@ export const ModelTableRow: React.FC<ModelTableRowProps> = ({
         }
       }}
       title={hint}
-      className={`group relative ${rowGrid(actions)} min-h-[54px] w-full min-w-0 flex-none rounded-[12px] px-[14px] py-[10px] transition-colors duration-150 text-start text-small leading-[1.5] text-text focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${vt ? "[view-transition-class:mf-row_mf-box]" : ""} ${
+      className={`group relative ${rowGrid(actions)} min-h-[54px] w-full min-w-0 flex-none rounded-xl px-[14px] py-[10px] transition-colors duration-200 text-start text-small leading-[1.5] text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ${vt ? "[view-transition-class:mf-row_mf-box]" : ""} ${
         tail
           ? "bg-wash"
           : selected
-            ? // The active model: an inked outline instead of a fill.
-              "cursor-default bg-text/[0.05] shadow-[inset_0_0_0_1.5px_var(--color-text)]"
-            : `${inert ? "cursor-default" : "cursor-pointer hover:bg-text/[0.04]"} ${highlighted === entry.id ? "bg-wash" : ""}`
+            ? // The active model: an accent outline over a soft accent fill.
+              "cursor-default bg-primary/[0.07] shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--color-primary)_60%,transparent)]"
+            : `${inert ? "cursor-default" : "cursor-pointer hover:bg-accent/60"} ${highlighted === entry.id ? "bg-accent/60" : ""}`
       }`}
     >
       <span
@@ -165,7 +165,7 @@ export const ModelTableRow: React.FC<ModelTableRowProps> = ({
           <b
             {...vt?.("n")}
             title={entry.name}
-            className={`min-w-0 overflow-hidden text-ellipsis whitespace-nowrap font-[650] ${dim ? "opacity-60" : ""}`}
+            className={`min-w-0 overflow-hidden text-ellipsis whitespace-nowrap font-medium ${dim ? "opacity-60" : ""}`}
           >
             {entry.name}
           </b>

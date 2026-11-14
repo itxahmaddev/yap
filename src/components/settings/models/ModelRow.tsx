@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Loader2, Lock, Trash2, X } from "lucide-react";
+import { Loader2, Lock, Trash2, X } from "@/components/icons/devigner";
 import { DownloadMark } from "@/components/shared/DownloadMark";
 import { Radio } from "@/components/ui/Radio";
 import { Button } from "@/components/ui/Button";

@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "חיפוש בהגדרות",
+    "noResults": "אין דפים תואמים"
   },
   "onboarding": {
     "customModelDescription": "לא נתמך באופן רשמי",

@@ -18,7 +18,7 @@ import {
   Star,
   Trash2,
   X,
-} from "lucide-react";
+} from "@/components/icons/devigner";
 import { useTranslation } from "react-i18next";
 import { notify } from "@/stores/noticeStore";
 import {
@@ -52,10 +52,10 @@ const IconButton: React.FC<{
   <button
     onClick={onClick}
     disabled={disabled}
-    className={`p-1.5 rounded-full flex items-center justify-center transition-colors cursor-pointer disabled:cursor-not-allowed disabled:text-text/20 ${
+    className={`grid size-7 place-items-center rounded-full transition-[background-color,color,scale] duration-200 cursor-pointer active:scale-90 disabled:cursor-not-allowed disabled:text-foreground/20 disabled:hover:bg-transparent ${
       active
-        ? "text-logo-primary hover:text-logo-primary"
-        : "text-ink-3 hover:text-logo-primary"
+        ? "text-primary hover:bg-primary/10"
+        : "text-muted-foreground hover:bg-accent hover:text-foreground"
     }`}
     title={title}
   >
@@ -314,8 +314,8 @@ export const HistorySettings: React.FC = () => {
     );
   } else if (entries.length === 0 && reads.length === 0) {
     content = (
-      <div className="flex flex-col items-center gap-3 rounded-[18px] border border-dashed border-line-strong/50 px-6 py-12 text-center text-[13px] text-ink-2">
-        <span className="grid size-12 place-items-center rounded-[14px] bg-text/[0.06]">
+      <div className="flex flex-col items-center gap-3 rounded-2xl border border-dashed border-input px-6 py-14 text-center text-[13px] text-muted-foreground">
+        <span className="grid size-12 place-items-center rounded-xl border border-border bg-muted text-primary">
           <History className="size-5" />
         </span>
         {t("settings.history.empty")}
@@ -353,8 +353,8 @@ export const HistorySettings: React.FC = () => {
   return (
     <div className="w-full space-y-8">
       <div className="space-y-4">
-        <div className="flex items-center justify-between gap-3 rounded-[14px] border border-line bg-surface px-3 py-2">
-          <h2 className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-3">
+        <div className="flex items-center justify-between gap-3 rounded-2xl border border-border bg-surface ps-4 pe-2 py-2">
+          <h2 className="m-0 font-mono text-[10.5px] font-medium uppercase tracking-[0.08em] text-muted-foreground">
             {t("settings.history.title")}
           </h2>
           <div className="flex items-center gap-1.5">
@@ -465,11 +465,11 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
   }
 
   return (
-    <div className="relative flex flex-col gap-3 rounded-[16px] border border-line bg-surface px-4 py-3.5 transition-colors duration-200 hover:border-text/20">
+    <div className="group/entry relative flex flex-col gap-3 rounded-2xl border border-border bg-surface px-4 py-3.5 transition-[border-color,background-color] duration-300 ease-glide hover:border-input">
       <div className="flex justify-between items-center gap-3">
         <div className="flex items-center gap-2 min-w-0">
-          <p className="m-0 inline-flex shrink-0 items-center gap-2 text-[12px] font-semibold text-ink-2">
-            <span className="size-1.5 rounded-full bg-text/50" />
+          <p className="m-0 inline-flex shrink-0 items-center gap-2 font-mono text-[11px] font-medium text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-primary" />
             {formattedDate}
           </p>
           {entry.source_name && (
@@ -482,7 +482,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
             </span>
           )}
         </div>
-        <div className="flex items-center shrink-0">
+        <div className="flex shrink-0 items-center gap-0.5 rounded-full border border-border bg-background p-0.5 opacity-80 transition-opacity duration-200 group-hover/entry:opacity-100">
           <IconButton
             onClick={handleCopyText}
             disabled={!hasTranscription || retrying}
@@ -540,7 +540,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
       <div className="flex flex-col items-start gap-1 pb-2">
         <p
           ref={textRef}
-          className={`italic text-sm w-full ${
+          className={`text-[14px] leading-relaxed text-foreground w-full ${
             retrying
               ? ""
               : hasTranscription
@@ -574,7 +574,7 @@ const HistoryEntryComponent: React.FC<HistoryEntryProps> = ({
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="text-xs font-medium text-ink-3 hover:text-logo-primary cursor-pointer"
+            className="font-mono text-[11px] font-medium text-muted-foreground hover:text-primary cursor-pointer"
           >
             {expanded
               ? t("settings.history.showLess")

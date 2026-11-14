@@ -73,7 +73,7 @@ export const LanguageChip: React.FC<LanguageChipProps> = ({
   }
   if (locked)
     return (
-      <span className="inline-flex h-[28px] items-center rounded-[8px] bg-text px-[10px] text-small font-semibold text-background">
+      <span className="inline-flex h-[28px] items-center rounded-full border border-primary/40 bg-primary/15 px-[10px] text-[12.5px] font-medium text-primary">
         {name}
       </span>
     );
@@ -86,10 +86,10 @@ export const LanguageChip: React.FC<LanguageChipProps> = ({
         e.preventDefault();
         onRemove();
       }}
-      className="group inline-flex h-[28px] cursor-pointer items-center gap-[6px] rounded-[8px] bg-text ps-[10px] pe-[4px] text-small font-semibold text-background hover:bg-text/85"
+      className="group inline-flex h-[26px] cursor-pointer items-center gap-[6px] rounded-full border border-primary/40 bg-primary/15 ps-[10px] pe-[3px] text-[12.5px] font-medium text-primary transition-colors hover:bg-primary/25"
     >
       {name}
-      <span className="grid size-[18px] place-items-center rounded-[5px] leading-none text-background/70 group-hover:bg-background/15 group-hover:text-background">
+      <span className="grid size-[18px] place-items-center rounded-full leading-none text-primary/70 group-hover:bg-primary group-hover:text-primary-foreground">
         <RemoveIcon />
       </span>
     </button>

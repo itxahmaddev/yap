@@ -12,13 +12,15 @@ const Badge: React.FC<BadgeProps> = ({
   className = "",
 }) => {
   const variantClasses = {
-    primary: "bg-logo-primary text-on-accent",
-    secondary: "bg-line text-ink-2",
+    // The blue "New" chip from ui.devigner.cc
+    primary:
+      "border border-primary/40 bg-gradient-to-b from-primary/30 to-primary/10 text-primary shadow-[inset_0_1px_0_rgb(255_255_255/0.15)]",
+    secondary: "border border-border bg-muted text-muted-foreground",
   };
 
   return (
     <span
-      className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center px-2 h-5 rounded-full text-[10.5px] font-semibold ${variantClasses[variant]} ${className}`}
     >
       {children}
     </span>

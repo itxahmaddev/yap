@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Cerca a la configuració",
+    "noResults": "Cap pàgina coincideix"
   },
   "onboarding": {
     "customModelDescription": "Sense suport oficial",

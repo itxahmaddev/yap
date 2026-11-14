@@ -36,14 +36,12 @@ import { commands } from "@/bindings";
 import { deleteRetiredModel } from "@/lib/models/retired";
 import { NoticePanel } from "@/components/notices/NoticePanel";
 import { getLanguageDirection, initializeRTL } from "@/lib/utils/rtl";
+import { SelectionFrame } from "@/components/ui/SelectionFrame";
+import { ChevronDown } from "@/components/icons/devigner";
 
 // flow is first-run onboarding; the rest are single screens for returning users.
 type OnboardingStep =
-  | "flow"
-  | "permissions"
-  | "migration"
-  | "replaceModel"
-  | "done";
+  "flow" | "permissions" | "migration" | "replaceModel" | "done";
 
 const renderSettingsContent = (
   section: SidebarSection,
@@ -86,15 +84,17 @@ const PageHeader: React.FC<{ section: SidebarSection }> = ({ section }) => {
   if (!config) return null;
   const Icon = config.icon;
   return (
-    <header className="flex items-center gap-3.5">
-      <span className="grid size-11 shrink-0 place-items-center rounded-[13px] bg-text text-background shadow-[0_6px_16px_-8px_rgb(0_0_0/0.5)]">
-        <Icon width={22} height={22} />
-      </span>
+    <header className="flex items-center gap-4 pt-2">
+      <SelectionFrame className="shrink-0">
+        <span className="grid size-12 place-items-center bg-primary/10 text-primary">
+          <Icon width={24} height={24} variant="Bulk" />
+        </span>
+      </SelectionFrame>
       <div className="min-w-0">
-        <h1 className="m-0 truncate text-[22px] font-semibold leading-tight tracking-[-0.025em]">
+        <h1 className="m-0 truncate text-[26px] font-semibold leading-tight tracking-[-0.035em]">
           {t(config.labelKey)}
         </h1>
-        <p className="m-0 truncate text-[13px] text-ink-2">
+        <p className="m-0 mt-0.5 truncate text-[13px] text-muted-foreground">
           {t(config.subtitleKey)}
         </p>
       </div>
@@ -359,12 +359,34 @@ function App() {
             onSectionChange={setCurrentSection}
             onShowHistory={showHistory}
           />
-          {/* The page sits on a raised sheet beside the sidebar. */}
-          <div className="my-2 me-2 flex flex-1 flex-col overflow-hidden rounded-[18px] border border-line bg-background shadow-[0_1px_3px_rgb(0_0_0/0.06)]">
-            <div ref={settingsScrollRef} className="flex-1 overflow-y-auto">
+          {/* The page sits on a stage beside the sidebar: a dot grid under a
+              soft blue glow, with a breadcrumb pill pinned to the top. */}
+          <div className="relative my-2 me-2 flex flex-1 flex-col overflow-hidden rounded-2xl border border-border bg-background">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle,var(--color-line)_1px,transparent_1.2px)] [background-size:22px_22px] [mask-image:linear-gradient(to_bottom,black,transparent_340px)]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 -top-40 mx-auto h-72 max-w-xl rounded-full bg-primary/12 blur-3xl"
+            />
+            <div
+              ref={settingsScrollRef}
+              className="relative flex-1 overflow-y-auto"
+            >
+              <div className="sticky top-0 z-20 flex justify-center pt-3 pb-1">
+                <span className="inline-flex h-7 items-center gap-1.5 rounded-full border border-border bg-background/80 ps-3 pe-3 text-[12px] text-muted-foreground shadow-[0_4px_16px_-8px_rgb(0_0_0/0.4)] backdrop-blur-md">
+                  {/* eslint-disable-next-line i18next/no-literal-string */}
+                  <span>Yap</span>
+                  <ChevronDown size={12} className="-rotate-90 rtl:rotate-90" />
+                  <span className="font-medium text-foreground">
+                    {t(SECTIONS_CONFIG[currentSection]?.labelKey ?? "")}
+                  </span>
+                </span>
+              </div>
               <div
                 key={currentSection}
-                className={`mx-auto flex w-full max-w-[920px] flex-col gap-6 px-6 pt-6 pb-8 animate-rise motion-reduce:animate-none ${currentSection === "models" ? "h-full" : ""}`}
+                className={`mx-auto flex w-full max-w-[760px] flex-col gap-5 px-7 pt-3 pb-10 animate-rise motion-reduce:animate-none ${currentSection === "models" ? "h-full" : ""}`}
               >
                 <PageHeader section={currentSection} />
                 <SecureInputWarning />

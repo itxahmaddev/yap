@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { CircleHelp } from "lucide-react";
+import { CircleHelp } from "@/components/icons/devigner";
 import { GradeChip } from "@/components/shared/GradeChip";
 import { SpeedBars } from "@/components/shared/SpeedBars";
 import { useRubric } from "@/components/shared/modelTable/rubric";

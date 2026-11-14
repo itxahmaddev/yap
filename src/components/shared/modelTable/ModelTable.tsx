@@ -7,7 +7,7 @@ import React, {
   type SetStateAction,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { Search } from "lucide-react";
+import { Search } from "@/components/icons/devigner";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { languageName } from "@/lib/constants/languages";
 import { CAPABILITIES, CAPABILITY_KEYS, type Capability } from "./capabilities";
@@ -246,10 +246,10 @@ export const ModelTable: React.FC<ModelTableProps> = ({
             setHighlighted(null);
             if (listRef.current) listRef.current.scrollTop = 0;
           }}
-          className={`flex h-[28px] shrink-0 cursor-pointer items-center gap-[6px] whitespace-nowrap rounded-[8px] px-[10px] text-small font-medium transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-logo-primary ${
+          className={`flex h-[28px] shrink-0 cursor-pointer items-center gap-[6px] whitespace-nowrap rounded-full px-[10px] font-mono text-[11px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ${
             filters[key]
-              ? "bg-text text-background"
-              : "text-ink-3 hover:bg-wash hover:text-text"
+              ? "border border-border bg-accent text-foreground"
+              : "border border-transparent text-muted-foreground hover:bg-accent/60 hover:text-foreground"
           }`}
         >
           <Icon aria-hidden="true" className="size-[14px]" />
@@ -263,12 +263,12 @@ export const ModelTable: React.FC<ModelTableProps> = ({
     <ModelTableContext.Provider value={{ grading, actions, highlighted }}>
       <div
         ref={panelRef}
-        className={`group/list flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[18px] bg-surface text-start ${
-          thinEdge ? "border border-line" : "border border-line"
+        className={`group/list flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-2xl bg-surface text-start shadow-[0_12px_32px_-20px_rgb(0_0_0/0.35)] ${
+          thinEdge ? "border border-border" : "border border-border"
         }`}
       >
         {/* The magnifier and input align with the marks and names columns. */}
-        <div className="flex-none border-b border-line bg-text/[0.02] px-[6px]">
+        <div className="flex-none border-b border-border bg-background/60 px-[6px]">
           <div className="flex h-[50px] items-center gap-[4px] ps-[14px] pe-[4px]">
             <label className="flex h-full min-w-0 flex-1 cursor-text items-center gap-[10px]">
               <span className="grid w-[18px] shrink-0 place-items-center text-ink-3">

@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Instellingen zoeken",
+    "noResults": "Geen pagina's gevonden"
   },
   "onboarding": {
     "customModelDescription": "Niet officieel ondersteund",

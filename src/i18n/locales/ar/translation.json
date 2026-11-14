@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "ابحث في الإعدادات",
+    "noResults": "لا توجد صفحات مطابقة"
   },
   "onboarding": {
     "customModelDescription": "غير مدعوم رسميًا",

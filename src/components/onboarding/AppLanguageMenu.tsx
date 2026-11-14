@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useRef, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
-import { Check, ChevronDown, Globe } from "lucide-react";
+import { Check, ChevronDown, Globe } from "@/components/icons/devigner";
 import { SUPPORTED_LANGUAGES } from "@/i18n";
 import { cjkSubsetFont } from "@/lib/utils/cjkFont";
 

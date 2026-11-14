@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause } from "@/components/icons/devigner";
 import { useTranslation } from "react-i18next";
 
 const revokeBlobSource = (src: string | null) => {
@@ -307,18 +307,18 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
       <button
         onClick={togglePlay}
         disabled={isLoading}
-        className="transition-colors cursor-pointer text-text hover:text-logo-primary disabled:opacity-50"
+        className="grid size-8 shrink-0 cursor-pointer place-items-center rounded-full bg-primary text-primary-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_4px_12px_-6px_var(--color-primary)] transition-[background-color,scale] duration-200 hover:bg-primary/90 active:scale-90 disabled:opacity-50"
         aria-label={isPlaying ? "Pause" : "Play"}
       >
         {isPlaying ? (
-          <Pause width={20} height={20} fill="currentColor" />
+          <Pause width={14} height={14} />
         ) : (
-          <Play width={20} height={20} fill="currentColor" />
+          <Play width={14} height={14} className="translate-x-px" />
         )}
       </button>
 
-      <div className="flex-1 flex items-center gap-2">
-        <span className="text-xs text-ink-2 min-w-[30px] tabular-nums">
+      <div className="flex h-9 flex-1 items-center gap-2.5 rounded-full border border-border bg-background px-3.5">
+        <span className="min-w-[30px] font-mono text-[11px] text-muted-foreground tabular-nums">
           {formatTime(currentTime)}
         </span>
 
@@ -332,13 +332,13 @@ export const AudioPlayer: React.FC<AudioPlayerProps> = ({
           onChange={handleSeek}
           onMouseDown={handleSliderMouseDown}
           onTouchStart={handleSliderTouchStart}
-          className={`flex-1 h-1 rounded-lg appearance-none cursor-pointer focus:outline-none focus:ring-1 focus:ring-logo-primary ${progressPercent >= 99.5 ? "[&::-webkit-slider-thumb]:translate-x-0.5 [&::-moz-range-thumb]:translate-x-0.5" : ""}`}
+          className={`flex-1 h-1 rounded-lg appearance-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 ${progressPercent >= 99.5 ? "[&::-webkit-slider-thumb]:translate-x-0.5 [&::-moz-range-thumb]:translate-x-0.5" : ""}`}
           style={{
-            background: `linear-gradient(to right, var(--color-logo-primary) 0%, var(--color-logo-primary) ${progressPercent}%, var(--color-line) ${progressPercent}%, rgba(128, 128, 128, 0.2) 100%)`,
+            background: `linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) ${progressPercent}%, var(--color-line-strong) ${progressPercent}%, var(--color-line-strong) 100%)`,
           }}
         />
 
-        <span className="text-xs text-ink-2 min-w-[30px] tabular-nums">
+        <span className="min-w-[30px] font-mono text-[11px] text-muted-foreground tabular-nums">
           {formatTime(duration)}
         </span>
       </div>

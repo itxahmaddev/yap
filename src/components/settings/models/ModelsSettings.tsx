@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw } from "@/components/icons/devigner";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { useModelStore } from "@/stores/modelStore";
 import {
@@ -58,7 +58,7 @@ export const ModelsSettings: React.FC<ModelsSettingsProps> = ({
     return (
       <div className="max-w-3xl w-full mx-auto">
         <div className="flex items-center justify-center py-16">
-          <div className="w-8 h-8 border-2 border-logo-primary border-t-transparent rounded-full animate-spin" />
+          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
         </div>
       </div>
     );
@@ -144,7 +144,7 @@ export const ModelsSettings: React.FC<ModelsSettingsProps> = ({
           <button
             type="button"
             onClick={onChangeLanguages}
-            className="inline-flex h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-[9px] bg-text/[0.06] px-3 text-[12.5px] font-medium text-text transition-colors hover:bg-text/[0.1] focus:outline-none focus-visible:ring-2 focus-visible:ring-text/30"
+            className="inline-flex h-8 shrink-0 cursor-pointer items-center gap-1.5 rounded-full border border-border bg-muted px-3.5 text-[12.5px] font-medium text-foreground transition-colors hover:border-input hover:bg-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
           >
             {t("settings.models.changeLanguages")}
           </button>

@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Sök i inställningar",
+    "noResults": "Inga sidor matchar"
   },
   "onboarding": {
     "customModelDescription": "Stöds inte officiellt",

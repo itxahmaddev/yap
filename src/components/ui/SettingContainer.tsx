@@ -1,11 +1,11 @@
 import React from "react";
-import { InfoTooltip } from "./InfoTooltip";
 import { useSettingTile } from "./SettingsGroup";
 
 interface SettingContainerProps {
   title: string;
   description: string;
   children: React.ReactNode;
+  /** Kept for callers: the description now always sits under the title. */
   descriptionMode?: "inline" | "tooltip";
   grouped?: boolean;
   layout?: "horizontal" | "stacked";
@@ -15,136 +15,63 @@ interface SettingContainerProps {
   grow?: boolean;
 }
 
+/**
+ * One setting as a row of a Devigner-style panel: label and hint on the left,
+ * the control on the right. Stacked settings put the control under the label.
+ * Outside a SettingsGroup the row draws its own panel.
+ */
 export const SettingContainer: React.FC<SettingContainerProps> = ({
   title,
   description,
   children,
-  descriptionMode = "tooltip",
   grouped = false,
   layout = "horizontal",
   disabled = false,
-  tooltipPosition = "top",
   grow = false,
 }) => {
-  const tile = useSettingTile();
+  const inPanel = useSettingTile() || grouped;
+  const stacked = layout === "stacked";
 
-  // Grid tile: title and description on top, the control anchored below.
-  // Wide content (stacked editors, controls that fill the row) spans the grid.
-  if (tile) {
-    const wide = layout === "stacked" || grow;
-    return (
-      <div
-        className={`group/tile flex min-h-[124px] flex-col gap-3 rounded-[16px] border border-line bg-surface p-4 transition-[border-color,box-shadow] duration-200 hover:border-text/20 hover:shadow-[0_6px_20px_-12px_rgb(0_0_0/0.25)] ${
-          wide ? "col-span-full" : ""
-        }`}
-      >
-        <div className={`min-w-0 ${disabled ? "opacity-50" : ""}`}>
-          <h3 className="text-[13.5px] font-semibold leading-snug tracking-tight text-text">
-            {title}
-          </h3>
-          {description && (
-            <p
-              className="mt-1 line-clamp-3 text-[12px] leading-[1.45] text-ink-3"
-              title={description}
-            >
-              {description}
-            </p>
-          )}
-        </div>
-        <div
-          className={`relative mt-auto flex w-full min-w-0 items-center gap-2 ${
-            wide ? "" : "justify-end"
-          }`}
+  const label = (
+    <div className={`min-w-0 ${disabled ? "opacity-50" : ""}`}>
+      <h3 className="m-0 text-[13px] font-medium leading-5 tracking-[-0.005em] text-foreground">
+        {title}
+      </h3>
+      {description && (
+        <p
+          className="m-0 mt-0.5 line-clamp-2 text-[12px] leading-[1.45] text-muted-foreground"
+          title={description}
         >
-          {wide ? <div className="w-full min-w-0">{children}</div> : children}
-        </div>
-      </div>
-    );
-  }
-
-  const info = (
-    <InfoTooltip
-      text={description}
-      placement={tooltipPosition === "bottom" ? "below" : "above"}
-    />
-  );
-
-  const containerClasses = grouped
-    ? "px-4 py-3"
-    : "px-4 py-3 rounded-xl border border-line bg-surface";
-
-  if (layout === "stacked") {
-    if (descriptionMode === "tooltip") {
-      return (
-        <div className={containerClasses}>
-          <div className="flex items-center gap-2 mb-2">
-            <h3
-              className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}
-            >
-              {title}
-            </h3>
-            {info}
-          </div>
-          <div className="w-full">{children}</div>
-        </div>
-      );
-    }
-
-    return (
-      <div className={containerClasses}>
-        <div className="mb-2">
-          <h3 className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}>
-            {title}
-          </h3>
-          <p className={`text-sm ${disabled ? "opacity-50" : ""}`}>
-            {description}
-          </p>
-        </div>
-        <div className="w-full">{children}</div>
-      </div>
-    );
-  }
-
-  // Horizontal layout (default)
-  const horizontalContainerClasses = `${
-    grouped
-      ? "flex items-center justify-between gap-4 min-h-14 px-4 py-3"
-      : "flex items-center justify-between gap-4 min-h-14 px-4 py-3 rounded-xl border border-line bg-surface"
-  }${grow ? " gap-4" : ""}`;
-  const titleClasses = grow ? "max-w-2/3 shrink-0" : "max-w-2/3";
-  const controlClasses = grow
-    ? "relative flex min-w-0 flex-1 justify-end"
-    : "relative";
-
-  if (descriptionMode === "tooltip") {
-    return (
-      <div className={horizontalContainerClasses}>
-        <div className={titleClasses}>
-          <div className="flex items-center gap-2">
-            <h3
-              className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}
-            >
-              {title}
-            </h3>
-            {info}
-          </div>
-        </div>
-        <div className={controlClasses}>{children}</div>
-      </div>
-    );
-  }
-
-  return (
-    <div className={horizontalContainerClasses}>
-      <div className={titleClasses}>
-        <h3 className={`text-sm font-medium ${disabled ? "opacity-50" : ""}`}>
-          {title}
-        </h3>
-        <p className={`text-sm ${disabled ? "opacity-50" : ""}`}>
           {description}
         </p>
+      )}
+    </div>
+  );
+
+  const row = stacked ? (
+    <div className="flex flex-col gap-3 px-4 py-3.5 transition-colors duration-200 hover:bg-foreground/[0.015]">
+      {label}
+      <div className="relative w-full min-w-0">{children}</div>
+    </div>
+  ) : (
+    <div className="flex min-h-[56px] items-center justify-between gap-6 px-4 py-3 transition-colors duration-200 hover:bg-foreground/[0.015]">
+      <div className={grow ? "max-w-[45%] shrink-0" : "min-w-0 flex-1"}>
+        {label}
       </div>
-      <div className={controlClasses}>{children}</div>
+      <div
+        className={`relative flex min-w-0 items-center justify-end gap-2 ${
+          grow ? "flex-1" : "shrink-0"
+        }`}
+      >
+        {children}
+      </div>
+    </div>
+  );
+
+  if (inPanel) return row;
+  return (
+    <div className="overflow-visible rounded-2xl border border-border bg-surface">
+      {row}
     </div>
   );
 };

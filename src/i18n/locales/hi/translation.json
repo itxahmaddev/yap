@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "सेटिंग्स खोजें",
+    "noResults": "कोई पेज मेल नहीं खाता"
   },
   "onboarding": {
     "customModelDescription": "आधिकारिक रूप से समर्थित नहीं",

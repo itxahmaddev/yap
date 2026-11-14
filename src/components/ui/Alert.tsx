@@ -1,5 +1,10 @@
 import React from "react";
-import { AlertCircle, AlertTriangle, Info, CheckCircle } from "lucide-react";
+import {
+  AlertCircle,
+  AlertTriangle,
+  Info,
+  CheckCircle,
+} from "@/components/icons/devigner";
 
 type AlertVariant = "error" | "warning" | "info" | "success";
 
@@ -16,22 +21,22 @@ const variantStyles: Record<
   { container: string; icon: string; text: string }
 > = {
   error: {
-    container: "bg-error-wash",
+    container: "bg-error-wash border border-error/25",
     icon: "text-error",
     text: "text-error",
   },
   warning: {
-    container: "bg-warning-wash",
+    container: "bg-warning-wash border border-warning/25",
     icon: "text-warning",
     text: "text-warning",
   },
   info: {
-    container: "bg-wash",
-    icon: "text-ink-2",
+    container: "bg-muted/60 border border-border",
+    icon: "text-primary",
     text: "text-ink-2",
   },
   success: {
-    container: "bg-moss-wash",
+    container: "bg-moss-wash border border-moss/25",
     icon: "text-moss",
     text: "text-moss",
   },
@@ -55,7 +60,7 @@ export const Alert: React.FC<AlertProps> = ({
 
   return (
     <div
-      className={`flex items-start gap-3 p-4 ${styles.container} ${contained ? "" : "rounded-xl"} ${className}`}
+      className={`flex items-start gap-3 p-3.5 text-[13px] ${styles.container} ${contained ? "" : "rounded-xl"} ${className}`}
     >
       <Icon className={`w-5 h-5 shrink-0 mt-0.5 ${styles.icon}`} />
       <p className={`text-sm ${styles.text}`}>{children}</p>

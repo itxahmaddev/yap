@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "설정 검색",
+    "noResults": "일치하는 페이지가 없습니다"
   },
   "onboarding": {
     "customModelDescription": "공식 지원되지 않음",

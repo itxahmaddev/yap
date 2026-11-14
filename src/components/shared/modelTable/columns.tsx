@@ -36,7 +36,7 @@ export const rowGrid = (actions: boolean) =>
   `grid ${actions ? "grid-cols-[18px_minmax(0,1fr)_auto_24px]" : "grid-cols-[18px_minmax(0,1fr)_auto]"} items-center gap-x-[10px]`;
 
 export const CODE_CLASS =
-  "text-tag font-semibold leading-[14px] tracking-[0.02em] text-ink-3 uppercase";
+  "font-mono text-[10.5px] font-medium leading-[14px] tracking-[0.08em] text-muted-foreground uppercase";
 
 /** A part's view-transition name (onboarding's moves), or nothing. */
 export type VtName = (part?: string) => Record<string, string> | undefined;

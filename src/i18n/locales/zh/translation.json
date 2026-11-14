@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "搜索设置",
+    "noResults": "没有匹配的页面"
   },
   "onboarding": {
     "customModelDescription": "非官方支持",

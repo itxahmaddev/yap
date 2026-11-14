@@ -28,19 +28,21 @@ const Footer: React.FC<FooterProps> = ({ onShowHistory }) => {
   }, []);
 
   return (
-    <div className="mt-2 flex flex-col gap-2 rounded-[14px] border border-line bg-surface p-3 text-[11.5px] text-ink-2">
-      <div className="flex min-w-0 items-center justify-between gap-2">
+    <div className="mt-3 flex flex-col overflow-hidden rounded-xl border border-border bg-background text-[11.5px] text-muted-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.03)]">
+      <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-2.5">
         <ModelSelector />
         <NoticeChip />
       </div>
-      <div className="flex min-w-0 items-center justify-between gap-2 border-t border-line pt-2">
+      <div className="flex min-w-0 items-center justify-between gap-2 border-t border-border px-3 py-2">
         <TranscriptionStatus onShowHistory={onShowHistory} />
         {/* eslint-disable-next-line i18next/no-literal-string */}
-        <span className="shrink-0 font-mono text-[10.5px] text-ink-3">
+        <span className="shrink-0 rounded-[5px] border border-border bg-muted px-1 py-px font-mono text-[10px] leading-none text-muted-foreground">
           v{version}
         </span>
       </div>
-      <UpdateChecker className="min-w-0 text-[11px]" />
+      <div className="border-t border-border px-3 py-2 empty:hidden">
+        <UpdateChecker className="min-w-0 font-mono text-[10.5px]" />
+      </div>
     </div>
   );
 };

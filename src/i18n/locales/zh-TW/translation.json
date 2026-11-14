@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "搜尋設定",
+    "noResults": "沒有符合的頁面"
   },
   "onboarding": {
     "customModelDescription": "官方不支援",

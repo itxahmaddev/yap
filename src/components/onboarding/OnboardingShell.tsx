@@ -32,14 +32,14 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
   return (
     <div
       data-onboarding=""
-      className="h-screen w-full flex overflow-hidden bg-background select-none cursor-default"
+      className="relative h-screen w-full flex overflow-hidden bg-canvas select-none cursor-default before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(circle,var(--color-line)_1px,transparent_1.2px)] before:[background-size:22px_22px] before:[mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]"
     >
       {/* Disabled buttons go neutral so the only filled one is the next step.
           The column is capped so a long row truncates instead of widening. */}
-      <div className="relative m-auto flex h-[600px] w-[720px] shrink-0 font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-line [&_button:disabled]:bg-wash [&_button:disabled]:text-ink-3 [&_button:disabled]:opacity-100 [&_button:disabled]:shadow-none">
-        {/* Dark rail: the mark, a vertical step tracker, and the step count */}
-        <aside className="relative m-2 me-0 flex w-[76px] shrink-0 flex-col items-center justify-between overflow-hidden rounded-[20px] bg-text py-5 text-background">
-          <span className="grid size-10 place-items-center rounded-[12px] bg-background/10">
+      <div className="relative m-auto flex h-[600px] w-[720px] shrink-0 font-ui text-body leading-[1.6] text-text antialiased [&_button:disabled]:border-border [&_button:disabled]:bg-muted [&_button:disabled]:text-muted-foreground [&_button:disabled]:opacity-100 [&_button:disabled]:shadow-none">
+        {/* Rail: the mark, a vertical step tracker, and the step count */}
+        <aside className="relative m-2 me-0 flex w-[68px] shrink-0 flex-col items-center justify-between overflow-hidden rounded-2xl border border-border bg-background py-5 text-foreground">
+          <span className="grid size-9 place-items-center rounded-lg bg-foreground text-background">
             <YapWave height={18} animated />
           </span>
           {progress ? (
@@ -56,10 +56,10 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
                   key={i}
                   className={`w-[6px] rounded-full transition-[height,background-color] duration-500 ease-glide ${
                     i === progress.index
-                      ? "h-[34px] bg-background"
+                      ? "h-[34px] bg-primary shadow-[0_0_12px_var(--color-primary)]"
                       : i < progress.index
-                        ? "h-[6px] bg-background/60"
-                        : "h-[6px] bg-background/20"
+                        ? "h-[6px] bg-foreground/60"
+                        : "h-[6px] bg-foreground/15"
                   }`}
                 />
               ))}
@@ -67,7 +67,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
           ) : (
             <span />
           )}
-          <span className="font-mono text-[11px] font-semibold tabular-nums text-background/60">
+          <span className="font-mono text-[11px] font-semibold tabular-nums text-muted-foreground">
             {progress ? `${progress.index + 1}/${progress.count}` : ""}
           </span>
         </aside>
@@ -83,7 +83,7 @@ export const OnboardingShell: React.FC<OnboardingShellProps> = ({
                 <button
                   type="button"
                   onClick={onBack}
-                  className="-ms-[10px] inline-flex cursor-pointer items-center gap-1.5 rounded-[10px] border border-transparent px-[12px] py-[8px] text-body font-medium text-ink-2 transition-colors hover:bg-text/[0.07] hover:text-text focus:outline-none focus-visible:ring-2 focus-visible:ring-text/40"
+                  className="-ms-[10px] inline-flex h-8 cursor-pointer items-center gap-1.5 rounded-full border border-transparent px-[12px] text-[13px] font-medium text-muted-foreground transition-colors hover:border-border hover:bg-accent hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
                 >
                   <span aria-hidden="true" className="rtl:rotate-180">
                     &larr;

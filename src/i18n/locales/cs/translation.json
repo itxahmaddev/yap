@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Hledat v nastavení",
+    "noResults": "Žádná stránka neodpovídá"
   },
   "onboarding": {
     "customModelDescription": "Oficiálně nepodporováno",

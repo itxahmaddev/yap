@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "設定を検索",
+    "noResults": "一致するページがありません"
   },
   "onboarding": {
     "customModelDescription": "公式サポート対象外",

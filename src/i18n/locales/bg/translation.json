@@ -31,7 +31,9 @@
       "workspace": "Workspace",
       "preferences": "Preferences",
       "app": "App"
-    }
+    },
+    "search": "Търсене в настройките",
+    "noResults": "Няма съвпадащи страници"
   },
   "onboarding": {
     "customModelDescription": "Не се поддържа официално",
