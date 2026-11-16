@@ -6,6 +6,7 @@ import { listen } from "@tauri-apps/api/event";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { arch, platform } from "@tauri-apps/plugin-os";
 import { ProgressBar } from "../shared";
+import { ArrowDown, Check, Loader2, RefreshCw } from "../icons/devigner";
 import { useSettings } from "../../hooks/useSettings";
 import { commands } from "../../bindings";
 import {
@@ -254,22 +255,35 @@ const UpdateChecker: React.FC<UpdateCheckerProps> = ({ className = "" }) => {
           </div>
         </div>
       )}
-      <div className={`flex items-center gap-3 ${className}`}>
+      <div className={`flex min-w-0 items-center gap-2 ${className}`}>
         {isUpdateClickable ? (
           <button
             onClick={getUpdateStatusAction()}
             disabled={isUpdateDisabled}
-            className={`transition-colors disabled:opacity-50 tabular-nums ${
+            className={`inline-flex min-w-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-md border px-2 py-1 transition-colors disabled:opacity-50 ${
               updateAvailable
-                ? "text-logo-primary hover:text-logo-primary font-medium"
-                : "text-ink-2 hover:text-text"
+                ? "border-primary/40 bg-primary/10 font-medium text-primary hover:bg-primary/15"
+                : "border-border text-muted-foreground hover:bg-muted hover:text-foreground"
             }`}
           >
-            {getUpdateStatusText()}
+            {updateAvailable ? (
+              <ArrowDown size={12} className="shrink-0" />
+            ) : (
+              <RefreshCw size={12} className="shrink-0" />
+            )}
+            <span className="truncate">{getUpdateStatusText()}</span>
           </button>
         ) : (
-          <span className="text-ink-2 tabular-nums">
-            {getUpdateStatusText()}
+          <span
+            className={`inline-flex min-w-0 items-center gap-1.5 whitespace-nowrap px-1 py-1 ${
+              checkFailed ? "text-destructive" : "text-muted-foreground"
+            }`}
+          >
+            {(isChecking || isInstalling) && (
+              <Loader2 size={12} className="shrink-0 animate-spin" />
+            )}
+            {showUpToDate && <Check size={12} className="shrink-0" />}
+            <span className="truncate">{getUpdateStatusText()}</span>
           </span>
         )}
 

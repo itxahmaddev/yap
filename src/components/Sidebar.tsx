@@ -231,7 +231,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           }}
           placeholder={t("sidebar.search")}
           aria-label={t("sidebar.search")}
-          className="min-w-0 flex-1 bg-transparent text-[12.5px] text-foreground placeholder:text-muted-foreground focus:outline-none [&::-webkit-search-cancel-button]:hidden"
+          className="min-w-0 flex-1 bg-transparent text-[12.5px] text-foreground placeholder:text-muted-foreground outline-none! focus:outline-none! focus-visible:outline-none! [&::-webkit-search-cancel-button]:hidden"
         />
         {}
         <kbd className="grid h-5 min-w-5 place-items-center rounded-[5px] border border-border bg-background px-1 font-mono text-[10px] leading-none text-muted-foreground group-focus-within/search:opacity-0">

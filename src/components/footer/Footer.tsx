@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ onShowHistory }) => {
   }, []);
 
   return (
-    <div className="mt-3 flex flex-col overflow-hidden rounded-xl border border-border bg-background text-[11.5px] text-muted-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.03)]">
+    <div className="mt-3 flex flex-col rounded-xl border border-border bg-background text-[11.5px] text-muted-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.03)]">
       <div className="flex min-w-0 items-center justify-between gap-2 px-3 py-2.5">
         <ModelSelector />
         <NoticeChip />

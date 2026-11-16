@@ -6,6 +6,14 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.5.1]
+
+### Fixed
+
+- The model picker in the footer opens fully again, so switching models works.
+- The settings search box no longer shows a second focus border inside its field.
+- "Check for updates" is a proper button with an icon and no longer wraps.
+
 ## [0.5.0]
 
 ### Fixed

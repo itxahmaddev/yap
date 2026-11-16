@@ -1,6 +1,6 @@
 [package]
 name = "yap"
-version = "0.5.0"
+version = "0.5.1"
 description = "Yap"
 authors = ["itxahmaddev"]
 edition = "2021"
