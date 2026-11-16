@@ -442,4 +442,3 @@ Yap is open-source software, but the Yap name, logo, icon, and brand assets are 
 - **Silero** for great lightweight VAD
 - **Tauri** team for the excellent Rust-based app framework
 - **Community contributors** helping make Yap better
-- **[Handy](https://github.com/cjpais/Handy)** by CJ Pais, the MIT-licensed project Yap is based on

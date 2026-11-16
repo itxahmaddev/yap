@@ -6350,7 +6350,7 @@ dependencies = [
 [[package]]
 name = "tao"
 version = "0.35.3"
-source = "git+https://github.com/cjpais/tao?rev=c3bee28c1d446d95f08c95c3b6f8d4bde052b876#c3bee28c1d446d95f08c95c3b6f8d4bde052b876"
+source = "git+https://github.com/tauri-apps/tao?rev=292a7d84e1b21005b6aa6b636a00900d018e5079#292a7d84e1b21005b6aa6b636a00900d018e5079"
 dependencies = [
  "bitflags 2.11.0",
  "block2",
@@ -6389,7 +6389,7 @@ dependencies = [
 [[package]]
 name = "tao-macros"
 version = "0.1.3"
-source = "git+https://github.com/cjpais/tao?rev=c3bee28c1d446d95f08c95c3b6f8d4bde052b876#c3bee28c1d446d95f08c95c3b6f8d4bde052b876"
+source = "git+https://github.com/tauri-apps/tao?rev=292a7d84e1b21005b6aa6b636a00900d018e5079#292a7d84e1b21005b6aa6b636a00900d018e5079"
 dependencies = [
  "proc-macro2",
  "quote",
