@@ -5,6 +5,7 @@ import { openUrl } from "@tauri-apps/plugin-opener";
 import { SettingsGroup } from "../../ui/SettingsGroup";
 import { SettingContainer } from "../../ui/SettingContainer";
 import { Button } from "../../ui/Button";
+import UpdateChecker from "../../update-checker";
 
 export const AboutSettings: React.FC = () => {
   const { t } = useTranslation();
@@ -32,10 +33,13 @@ export const AboutSettings: React.FC = () => {
           description={t("settings.about.version.description")}
           grouped={true}
         >
-          {/* eslint-disable-next-line i18next/no-literal-string */}
-          <span className="rounded-[8px] bg-text/[0.06] px-2.5 py-1 font-mono text-[13px] font-semibold">
-            v{version}
-          </span>
+          <div className="flex items-center gap-3">
+            <UpdateChecker className="font-mono text-[12px]" />
+            {/* eslint-disable-next-line i18next/no-literal-string */}
+            <span className="rounded-[8px] bg-text/[0.06] px-2.5 py-1 font-mono text-[13px] font-semibold">
+              v{version}
+            </span>
+          </div>
         </SettingContainer>
 
         <SettingContainer

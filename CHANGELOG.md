@@ -6,6 +6,12 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.5.3]
+
+### Changed
+
+- The footer now shows only the model picker. "Check for updates" and the version number moved to Settings → About.
+
 ## [0.5.1]
 
 ### Fixed
