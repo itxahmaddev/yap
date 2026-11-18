@@ -13,6 +13,12 @@
   <a href="CONTRIBUTING.md"><img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-black.svg"></a>
 </p>
 
+<p align="center">
+  <a href="https://yap-speech.vercel.app"><strong>yap-speech.vercel.app</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/itxahmaddev/yap/releases/latest">Download</a>
+</p>
+
 **A free, open source, and extensible speech-to-text application that works completely offline.**
 
 Yap is a cross-platform desktop application that provides simple, privacy-focused speech transcription. Press a shortcut, speak, and have your words appear in any text field. This happens on your own computer without sending any information to the cloud.
@@ -45,7 +51,7 @@ The process is entirely local:
 
 ### Installation
 
-1. Download the latest release from the [releases page](https://github.com/itxahmaddev/yap/releases)
+1. Download the latest release from the [website](https://yap-speech.vercel.app) or the [releases page](https://github.com/itxahmaddev/yap/releases)
    - **Debian/Ubuntu**: Install the downloaded `.deb` with APT so required dependencies are installed automatically:
      ```bash
      sudo apt install ./Yap_*.deb
