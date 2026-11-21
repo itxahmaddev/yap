@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Check, ChevronDown } from "@/components/icons/devigner";
+import { Check, ChevronDown } from "@/components/icons/UiIcons";
 import { useTranslation } from "react-i18next";
 
 export interface DropdownOption {

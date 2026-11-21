@@ -7,7 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { Play, Pause } from "@/components/icons/devigner";
+import { Play, Pause } from "@/components/icons/UiIcons";
 import { useTranslation } from "react-i18next";
 
 const revokeBlobSource = (src: string | null) => {

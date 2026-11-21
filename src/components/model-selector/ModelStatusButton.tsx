@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronDown } from "@/components/icons/devigner";
+import { ChevronDown } from "@/components/icons/UiIcons";
 
 type ModelStatus =
   | "ready"

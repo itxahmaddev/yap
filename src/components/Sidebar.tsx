@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { Search } from "./icons/devigner";
+import { Search } from "./icons/UiIcons";
 import { useTranslation } from "react-i18next";
 import YapWave from "./icons/YapWave";
 import {

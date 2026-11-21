@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button } from "../ui/Button";
 import { Dropdown, DropdownOption } from "../ui/Dropdown";
-import { PlayIcon } from "@/components/icons/devigner";
+import { PlayIcon } from "@/components/icons/UiIcons";
 import { SettingContainer } from "../ui/SettingContainer";
 import { useSettingsStore } from "../../stores/settingsStore";
 import { useSettings } from "../../hooks/useSettings";

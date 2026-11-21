@@ -18,7 +18,7 @@ import {
   Star,
   Trash2,
   X,
-} from "@/components/icons/devigner";
+} from "@/components/icons/UiIcons";
 import { useTranslation } from "react-i18next";
 import { notify } from "@/stores/noticeStore";
 import {

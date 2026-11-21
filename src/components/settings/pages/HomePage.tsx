@@ -9,7 +9,7 @@ import YapWave from "../../icons/YapWave";
 import { ArrowRightIcon, HistoryIcon, ModelsIcon } from "../../icons/NavIcons";
 import { Crosshair, SelectionFrame } from "../../ui/SelectionFrame";
 import Badge from "../../ui/Badge";
-import { Mic } from "../../icons/devigner";
+import { Mic } from "../../icons/UiIcons";
 import { MicrophoneSelector } from "../MicrophoneSelector";
 import { AudioFeedback } from "../AudioFeedback";
 import { MuteWhileRecording } from "../MuteWhileRecording";

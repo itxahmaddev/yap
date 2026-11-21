@@ -7,7 +7,7 @@ import React, {
   type SetStateAction,
 } from "react";
 import { useTranslation } from "react-i18next";
-import { Search } from "@/components/icons/devigner";
+import { Search } from "@/components/icons/UiIcons";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { languageName } from "@/lib/constants/languages";
 import { CAPABILITIES, CAPABILITY_KEYS, type Capability } from "./capabilities";

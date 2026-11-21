@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown } from "@/components/icons/devigner";
+import { ArrowDown } from "@/components/icons/UiIcons";
 
 /**
  * Marks something not downloaded yet; turns solid while its `group` row is

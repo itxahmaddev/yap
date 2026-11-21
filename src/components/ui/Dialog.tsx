@@ -1,6 +1,6 @@
 import React, { useEffect, useId, useRef } from "react";
 import { createPortal } from "react-dom";
-import { X } from "@/components/icons/devigner";
+import { X } from "@/components/icons/UiIcons";
 
 const FOCUSABLE_SELECTOR = [
   "a[href]",

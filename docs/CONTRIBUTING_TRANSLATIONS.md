@@ -151,13 +151,13 @@ Some languages have complex plural rules. For now, use a general form that works
 
 ## Currently Supported Languages
 
-See [language metadata](src/i18n/languages.ts) for the current language names and codes, and [locale folders](src/i18n/locales) for their translation files. The app discovers supported languages from these folders.
+See [language metadata](../src/i18n/languages.ts) for the current language names and codes, and [locale folders](../src/i18n/locales) for their translation files. The app discovers supported languages from these folders.
 
-[English](src/i18n/locales/en/translation.json) is the source language. Existing translations may still need corrections or updates.
+[English](../src/i18n/locales/en/translation.json) is the source language. Existing translations may still need corrections or updates.
 
 ## Requested Languages
 
-We welcome additional languages that are not yet in the [locale folders](src/i18n/locales), as well as [improvements to existing translations](#improving-existing-translations).
+We welcome additional languages that are not yet in the [locale folders](../src/i18n/locales), as well as [improvements to existing translations](#improving-existing-translations).
 
 ---
 

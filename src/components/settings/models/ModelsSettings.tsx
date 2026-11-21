@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RefreshCw } from "@/components/icons/devigner";
+import { RefreshCw } from "@/components/icons/UiIcons";
 import { Tooltip } from "@/components/ui/Tooltip";
 import { useModelStore } from "@/stores/modelStore";
 import {

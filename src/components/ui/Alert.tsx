@@ -4,7 +4,7 @@ import {
   AlertTriangle,
   Info,
   CheckCircle,
-} from "@/components/icons/devigner";
+} from "@/components/icons/UiIcons";
 
 type AlertVariant = "error" | "warning" | "info" | "success";
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { X } from "@/components/icons/devigner";
+import { X } from "@/components/icons/UiIcons";
 import type { NoticeLevel } from "@/bindings";
 import { NoticeBadgeIcon } from "@/components/icons/NoticeBadgeIcon";
 import { noticeDisplay } from "@/lib/notices";

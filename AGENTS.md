@@ -47,7 +47,7 @@ mkdir -p src-tauri/resources/models
 curl -L -o src-tauri/resources/models/silero-vad-v6.2-F32.gguf https://huggingface.co/handy-computer/silero-vad-v6.2-gguf/resolve/main/silero-vad-v6.2-F32.gguf
 ```
 
-For detailed platform-specific build setup, see [BUILD.md](BUILD.md).
+For detailed platform-specific build setup, see [BUILD.md](docs/BUILD.md).
 
 ## Architecture Overview
 
@@ -180,7 +180,7 @@ src/i18n/
     └── ...
 ```
 
-For translation contribution guidelines, see [CONTRIBUTING_TRANSLATIONS.md](CONTRIBUTING_TRANSLATIONS.md).
+For translation contribution guidelines, see [CONTRIBUTING_TRANSLATIONS.md](docs/CONTRIBUTING_TRANSLATIONS.md).
 
 ## Code Style
 
@@ -230,7 +230,7 @@ Access debug features: `Cmd+Shift+D` (macOS) or `Ctrl+Shift+D` (Windows/Linux)
 
 ## Troubleshooting
 
-See the [Troubleshooting](README.md#troubleshooting) section in README.md.
+See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md).
 
 ## GitHub workflow for AI coding assistants
 
@@ -239,7 +239,7 @@ See the [Troubleshooting](README.md#troubleshooting) section in README.md.
 - **Opening a PR:** Read [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md). Every section listed there is mandatory. If a section requires a human-written paragraph (e.g. "Human Written Description"), leave a clear TODO placeholder and ask the human contributor to fill it in — do not invent their voice.
 - **Opening an issue:** Read [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/). Blank issues are disabled; pick the right template (`bug_report.md` for bugs). Feature requests do not belong in issues — they go to [Discussions](https://github.com/itxahmaddev/yap/discussions) (see `.github/ISSUE_TEMPLATE/config.yml`).
 - **Proposing a feature:** Yap is under a feature freeze. New features require community support gathered in [Discussions](https://github.com/itxahmaddev/yap/discussions) before any PR is opened — see the PR template's "Community Feedback" section.
-- **Translations:** Follow [CONTRIBUTING_TRANSLATIONS.md](CONTRIBUTING_TRANSLATIONS.md).
+- **Translations:** Follow [CONTRIBUTING_TRANSLATIONS.md](docs/CONTRIBUTING_TRANSLATIONS.md).
 - **Full contributor workflow:** [CONTRIBUTING.md](CONTRIBUTING.md).
 
 **Commits:** Use conventional commit prefixes (`feat:`, `fix:`, `docs:`, `refactor:`, `chore:`). Focus the message on _why_, not _what_.

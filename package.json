@@ -2,6 +2,15 @@
   "name": "yap-app",
   "private": true,
   "version": "0.5.3",
+  "description": "Free, open source, offline speech-to-text for your desktop.",
+  "license": "MIT",
+  "author": "Muhammad Ahmad",
+  "homepage": "https://yap-speech.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itxahmaddev/yap.git"
+  },
+  "bugs": "https://github.com/itxahmaddev/yap/issues",
   "type": "module",
   "scripts": {
     "dev": "vite",

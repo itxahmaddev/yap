@@ -37,7 +37,7 @@ import { deleteRetiredModel } from "@/lib/models/retired";
 import { NoticePanel } from "@/components/notices/NoticePanel";
 import { getLanguageDirection, initializeRTL } from "@/lib/utils/rtl";
 import { SelectionFrame } from "@/components/ui/SelectionFrame";
-import { ChevronDown } from "@/components/icons/devigner";
+import { ChevronDown } from "@/components/icons/UiIcons";
 
 // flow is first-run onboarding; the rest are single screens for returning users.
 type OnboardingStep =

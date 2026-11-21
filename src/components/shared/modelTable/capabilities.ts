@@ -1,4 +1,4 @@
-import { Languages, Radio as LiveIcon } from "@/components/icons/devigner";
+import { Languages, Radio as LiveIcon } from "@/components/icons/UiIcons";
 
 /**
  * What a model can do besides transcribe: its icon, and its flag on a table
